@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/Toolbar" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Olcum Sonucu Girme"
+        android:id="@+id/add_measurement_button"
+        android:layout_gravity="center_horizontal"
+        android:layout_above="@+id/add_workout_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="AddMesurementListButtonPressed"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Egzersiz ekleme"
+        android:id="@+id/add_workout_button"
+        android:layout_gravity="center_horizontal"
+        android:layout_above="@+id/add_meallist_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="AddWorkoutlistButtonPressed"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Yemek Listesi Girme"
+        android:id="@+id/add_meallist_button"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="AddMealListButtonPressed"
+       />
+
+
+</LinearLayout>

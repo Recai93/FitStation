@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/Toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:weightSum="4">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:src="@drawable/ic_fork_knife"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="asdf"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:weightSum="4">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:src="@drawable/ic_measurement"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="asdf"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:weightSum="4">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:src="@drawable/ic_waterdrop"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="asdf"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <!--<Button-->
+            <!--android:id="@+id/AddTrainerButton"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/button1"-->
+            <!--android:onClick="addTrainerButtonPressed"-->
+            <!--android:text="Antrenore kayit olma" />-->
+
+        <Button
+            android:id="@+id/AddMeasurementButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/button2"
+            android:onClick="onShowMeasurementListPressed"
+            android:text="Olcum Sonucu Gorme" />
+
+        <Button
+            android:id="@+id/AddWorkoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/button3"
+            android:onClick="onShowWorkoutListPressed"
+            android:text="Egzersiz gorme" />
+
+        <Button
+            android:id="@+id/AddMealListButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/button4"
+            android:onClick="onShowMealListPressed"
+            android:text="Yemek Listesi Gorme" />
+    </LinearLayout>
+
+</LinearLayout>
