@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -25,6 +26,8 @@ public class ClientWorkoutActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_workout);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
+        toolbar.setTitle(getString(R.string.title_activity_client_workout));
 
         mListView = (ListView) findViewById(R.id.list_view_client_workouts);
 
@@ -62,8 +65,7 @@ public class ClientWorkoutActivity extends AppCompatActivity {
             orderedActiveUserListsRef = activeListsRef.orderByChild(sortOrder);
         }
         mClientWorkoutAdapter = new ClientWorkoutAdapter(ClientWorkoutActivity.this, WorkoutList.class,
-                R.layout.single_client_workout, orderedActiveUserListsRef,
-                mEncodedEmail);
+                R.layout.single_client_workout, orderedActiveUserListsRef);
         mListView.setAdapter(mClientWorkoutAdapter);
     }
 

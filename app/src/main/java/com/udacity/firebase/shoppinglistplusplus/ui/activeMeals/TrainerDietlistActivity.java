@@ -66,7 +66,7 @@ public class TrainerDietlistActivity extends AppCompatActivity implements AddCli
 
     @Override
     public void onFinishEditDialog(String inputText) {
-        Meal meal = new Meal(inputText, inputText, inputText);
+        Meal meal = new Meal(inputText, inputText, inputText,"");
         expandableListDetail.get(expandableListAdapter.getGroup(grpPosition)).add(meal);
         selectedMeals.add(meal);
     }

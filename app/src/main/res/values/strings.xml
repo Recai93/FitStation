@@ -218,7 +218,7 @@
     <string name="sort_by_most_recently_changed_value">timestampLastChangedReverse/timestamp</string>
     <string name="radio_button_male">Male</string>
     <string name="radio_button_female">Female</string>
-    <string name="title_activity_client_workout">ClientWorkoutActivity</string>
+
     <!-- Measurement -->
     <string name="tv_measurement_title">Baslik:</string>
     <string name="tv_measurement_totalweight">Toplam agirlik :</string>
@@ -251,4 +251,6 @@
     <string name="nav_item_show_exercises">Egzersizler</string>
     <string name="trainer">Antrenör</string>
     <string name="title_activity_client_measurement">Ölçüm sonuçları</string>
+    <string name="title_activity_client_workout">Egzersizler</string>
+    <string name="title_activity_client_meal">Yemek listeleri</string>
 </resources>

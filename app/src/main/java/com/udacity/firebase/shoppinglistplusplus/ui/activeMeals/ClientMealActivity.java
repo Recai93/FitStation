@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -25,6 +26,8 @@ public class ClientMealActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_meal);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
+        toolbar.setTitle(getString(R.string.title_activity_client_meal));
 
         mListView = (ListView) findViewById(R.id.list_view_client_meals);
 
@@ -62,8 +65,7 @@ public class ClientMealActivity extends AppCompatActivity {
             orderedActiveUserListsRef = activeListsRef.orderByChild(sortOrder);
         }
         mClientMealAdapter = new ClientMealAdapter(ClientMealActivity.this, MealList.class,
-                R.layout.single_client_meal, orderedActiveUserListsRef,
-                mEncodedEmail);
+                R.layout.single_client_meal, orderedActiveUserListsRef);
         mListView.setAdapter(mClientMealAdapter);
     }
 

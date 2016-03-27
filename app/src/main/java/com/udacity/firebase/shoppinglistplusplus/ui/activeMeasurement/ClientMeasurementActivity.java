@@ -66,7 +66,7 @@ public class ClientMeasurementActivity extends AppCompatActivity {
             orderedActiveUserListsRef = activeListsRef.orderByChild(sortOrder);
         }
         mClientMeasurementAdapter = new ClientMeasurementAdapter(ClientMeasurementActivity.this, Measurement.class,
-                R.layout.single_client_measurement, orderedActiveUserListsRef, mEncodedEmail);
+                R.layout.single_client_measurement, orderedActiveUserListsRef);
         mListView.setAdapter(mClientMeasurementAdapter);
     }
 

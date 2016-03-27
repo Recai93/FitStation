@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Random;
 
 /**
  * Utility class
@@ -30,7 +31,7 @@ public class Utils {
     public static String encodeEmail(String userEmail) {
         return userEmail.replace(".", ",");
     }
-    
+
     /**
      * Email is being decoded just once to display real email in AutocompleteFriendAdapter
      *
@@ -40,10 +41,15 @@ public class Utils {
         return userEmail.replace(",", ".");
     }
 
-    public static String getDate(long milliSeconds, String dateFormat){
+    public static String getDate(long milliSeconds, String dateFormat) {
         SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliSeconds);
         return formatter.format(calendar.getTime());
+    }
+
+    public static String getTip() {
+        int size = Constants.tips.length;
+        return Constants.tips[new Random().nextInt(size)];
     }
 }

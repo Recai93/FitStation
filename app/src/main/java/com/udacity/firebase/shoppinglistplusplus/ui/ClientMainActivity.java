@@ -1,5 +1,6 @@
 package com.udacity.firebase.shoppinglistplusplus.ui;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -14,7 +15,6 @@ import android.view.View;
 
 import com.firebase.client.Firebase;
 import com.firebase.client.ValueEventListener;
-import com.udacity.firebase.shoppinglistplusplus.ElifJsoup;
 import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.ui.activeMeals.ClientMealActivity;
 import com.udacity.firebase.shoppinglistplusplus.ui.activeMeasurement.ClientMeasurementActivity;
@@ -38,8 +38,6 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_main);
         setTitle("");
-
-        new ElifJsoup().getData2();
 
         mEncodedEmail = PreferenceManager.getDefaultSharedPreferences(ClientMainActivity.this).getString(Constants.KEY_ENCODED_EMAIL, null);
 
@@ -86,7 +84,8 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
             case R.id.action_tip:
-                startActivity(new Intent(ClientMainActivity.this, SettingsActivity.class));
+                DialogFragment dialog = TipsDialogFragment.newInstance();
+                dialog.show(ClientMainActivity.this.getFragmentManager(), "Tips");
                 return true;
         }
         return super.onOptionsItemSelected(item);

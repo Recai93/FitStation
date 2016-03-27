@@ -6,7 +6,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ListView;
 
 import com.firebase.client.DataSnapshot;
@@ -28,31 +27,25 @@ public class ActiveMealDetailsActivity extends BaseActivity {
     private String mListId;
     private User mCurrentUser;
     private MealList mMealList;
-    private ValueEventListener  mCurrentListRefListener;
+    private ValueEventListener mCurrentListRefListener;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_active_meal_details);
-        overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
         Intent intent = this.getIntent();
         mListId = intent.getStringExtra(Constants.KEY_LIST_ID);
         if (mListId == null) {
             finish();
             return;
         }
-
         mCurrentListRef = new Firebase(Constants.FIREBASE_URL_CLIENT_MEAL_LIST).child(mEncodedEmail).child(mListId);
         Firebase listItemsRef = new Firebase(Constants.FIREBASE_URL_CLIENT_MEAL_LIST).child(mEncodedEmail).child(mListId).child(Constants.FIREBASE_LOCATION_MEAL_LIST);
-
         initializeScreen();
         mActiveListItemAdapter = new ActiveMealItemAdapter(this, Meal.class,
-                R.layout.single_client_meal, listItemsRef.orderByChild(Constants.FIREBASE_PROPERTY_BOUGHT_BY),
-                mListId, mEncodedEmail);
+                R.layout.single_client_meal_item, listItemsRef.orderByChild(Constants.FIREBASE_PROPERTY_BOUGHT_BY));
         mListView.setAdapter(mActiveListItemAdapter);
-
         mCurrentListRefListener = mCurrentListRef.addValueEventListener(new ValueEventListener() {
-
             @Override
             public void onDataChange(DataSnapshot snapshot) {
 
@@ -63,10 +56,8 @@ public class ActiveMealDetailsActivity extends BaseActivity {
                     return;
                 }
                 mMealList = shoppingList;
-                mActiveListItemAdapter.setShoppingList(mMealList);
                 invalidateOptionsMenu();
                 setTitle(shoppingList.getCreator());
-
             }
 
             @Override
@@ -94,20 +85,12 @@ public class ActiveMealDetailsActivity extends BaseActivity {
     }
 
     private void initializeScreen() {
-        mListView = (ListView) findViewById(R.id.list_view_shopping_list_items);
+        mListView = (ListView) findViewById(R.id.list_view_meals_list_items);
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-        View footer = getLayoutInflater().inflate(R.layout.footer_empty, null);
-        mListView.addFooterView(footer);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
     }
 
 }
