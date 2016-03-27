@@ -26,86 +26,113 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:padding="16dp"
+                android:padding="4dp"
                 android:orientation="vertical"
                 android:layout_weight="1"
-                android:weightSum="4">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="3"
-                    android:src="@drawable/ic_fork_knife"/>
+                android:weightSum="15">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/black"
                     android:gravity="center"
-                    android:text="asdf"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:padding="16dp"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:weightSum="4">
+                    android:text="@string/kilo"/>
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_gravity="center"
-                    android:layout_weight="3"
+                    android:layout_weight="10"
                     android:src="@drawable/ic_measurement"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:layout_weight="4"
                     android:gravity="center"
-                    android:text="asdf"/>
+                    android:text="-- kg"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:padding="16dp"
+                android:padding="4dp"
                 android:orientation="vertical"
                 android:layout_weight="1"
-                android:weightSum="4">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="3"
-                    android:src="@drawable/ic_waterdrop"/>
+                android:weightSum="15">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="asdf"/>
+                    android:textColor="@color/green"
+                    android:text="@string/food"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="10"
+                    android:src="@drawable/ic_fork_knife"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:textColor="@color/green"
+                    android:text="-- kcal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:weightSum="15">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/blue"
+                    android:text="@string/water"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="10"
+                    android:src="@drawable/ic_waterdrop"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:textColor="@color/blue"
+                    android:text="-- barduck"/>
 
             </LinearLayout>
 
         </LinearLayout>
 
 
-        <!--<Button-->
-            <!--android:id="@+id/AddTrainerButton"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:background="@color/button1"-->
-            <!--android:onClick="addTrainerButtonPressed"-->
-            <!--android:text="Antrenore kayit olma" />-->
+        <Button
+            android:id="@+id/AddTrainerButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/button1"
+            android:onClick="addTrainerButtonPressed"
+            android:text="Gunluk yemek listesi" />
 
         <Button
             android:id="@+id/AddMeasurementButton"

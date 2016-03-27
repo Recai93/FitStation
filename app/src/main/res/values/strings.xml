@@ -236,12 +236,19 @@
     <string name="tv_measurement_rightlegmescle">Sag bacak kas kutlesi:</string>
     <string name="tv_measurement_leftlegfat">Sol bacak yag kutlesi :</string>
     <string name="tv_measurement_leftlegmuscle">Sol bacak kas kutlesi :</string>
-    <string name="nav_item_add_trainer">Add trainer</string>
-    <string name="nav_item_manage_profile">Manage profile</string>
-    <string name="nav_item_friends">Friends</string>
-    <string name="nav_sub_item_settings">Settings</string>
-    <string name="nav_sub_item_logout">Logout</string>
+    <string name="nav_item_add_trainer">Antrenöre kaydol</string>
+    <string name="nav_item_manage_profile">Profil</string>
+    <string name="nav_sub_item_settings">Ayarlar</string>
+    <string name="nav_sub_item_logout">Çıkış yap</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="kilo">Kilo</string>
+    <string name="food">Yemek</string>
+    <string name="water">Su</string>
+    <string name="nav_item_show_measurements">Ölçüm sonuçları</string>
+    <string name="nav_item_show_meals">Yemek listeleri</string>
+    <string name="nav_item_show_exercises">Egzersizler</string>
+    <string name="trainer">Antrenör</string>
+    <string name="title_activity_client_measurement">Ölçüm sonuçları</string>
 </resources>

@@ -16,7 +16,15 @@
         <item
             android:id="@+id/navigation_item_3"
             android:icon="@android:drawable/ic_menu_manage"
-            android:title="@string/nav_item_friends" />
+            android:title="@string/nav_item_show_measurements" />
+        <item
+            android:id="@+id/navigation_item_4"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="@string/nav_item_show_meals" />
+        <item
+            android:id="@+id/navigation_item_5"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="@string/nav_item_show_exercises" />
     </group>
     <group
         android:id="@+id/menu_bottom"
