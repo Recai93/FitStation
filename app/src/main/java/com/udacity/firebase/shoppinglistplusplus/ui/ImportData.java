@@ -148,28 +148,26 @@ public class ImportData {
             "Dumbell Front Raises",
             "Cable Rear Deltoid",
             "Rear Deltoid Machine",
-            "Dumbell Rear Deltoid",
-            "Military Press"
+            "Dumbell Rear Deltoid"
     };
 
-    static String[] ShoulderUrl = {"Seated Overhead Barbell Press",
-            "Seated Overhead Dumbell Press",
-            "Standing Overhead Barbell Press",
-            "Standing Overhead Dumbell Press",
-            "Shoulder Press Machine",
-            "Arnold Press",
-            "Barbell Arnold Press",
-            "Dumbell Upright",
-            "Barbell Upright",
-            "Dumbell Lateral Raises",
-            "Cable Lateral Raises",
-            "Lateral Machine",
-            "Cable Front Raises",
-            "Dumbell Front Raises",
-            "Cable Rear Deltoid",
-            "Rear Deltoid Machine",
-            "Dumbell Rear Deltoid",
-            "Military Press"
+    static String[] ShoulderUrl = {"https://www.youtube.com/watch?v=flpBXsHSVDk",
+            "https://www.youtube.com/watch?v=b5JzUH8gsOg",
+            "https://www.youtube.com/watch?v=2yjwXTZQDDI",
+            "https://www.youtube.com/watch?v=B-aVuyhvLHU",
+            "https://www.youtube.com/watch?v=Wqq43dKW1TU",
+            "https://www.youtube.com/watch?v=3ml7BH7mNwQ",
+            "",
+            "https://www.youtube.com/watch?v=IhZLB48kluc",
+            "https://www.youtube.com/watch?v=amCU-ziHITM",
+            "https://www.youtube.com/watch?v=3VcKaXpzqRo",
+            "https://www.youtube.com/watch?v=PlJEfHTsyUo",
+            "https://www.youtube.com/watch?v=xlxDquY0AQ8",
+            "https://www.youtube.com/watch?v=H0O4HNvtB70",
+            "https://www.youtube.com/watch?v=-t7fuZ0KhDA",
+            "https://www.youtube.com/watch?v=DAC4qmKv5o0",
+            "https://www.youtube.com/watch?v=K-ilBw_D1a4",
+            "https://www.youtube.com/watch?v=p1yQnTNE808"
     };
 
     static String[] LegName = {

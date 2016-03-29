@@ -19,6 +19,11 @@
         <item name="android:layout_margin">2dp</item>
     </style>
 
+    <style name="MeasurementText">
+        <item name="android:textSize">@dimen/list_created_by_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="HintText">
         <item name="android:textSize">0dp</item>
     </style>

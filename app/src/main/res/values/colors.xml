@@ -24,4 +24,5 @@
 
     <color name="green">#388E3C</color>
     <color name="blue">#1976D2</color>
+    <color name="holo_light">#fff3f3f3</color>
 </resources>

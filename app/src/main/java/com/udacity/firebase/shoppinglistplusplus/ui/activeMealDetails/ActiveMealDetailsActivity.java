@@ -40,7 +40,8 @@ public class ActiveMealDetailsActivity extends BaseActivity {
             return;
         }
         mCurrentListRef = new Firebase(Constants.FIREBASE_URL_CLIENT_MEAL_LIST).child(mEncodedEmail).child(mListId);
-        Firebase listItemsRef = new Firebase(Constants.FIREBASE_URL_CLIENT_MEAL_LIST).child(mEncodedEmail).child(mListId).child(Constants.FIREBASE_LOCATION_MEAL_LIST);
+        Firebase listItemsRef = new Firebase(Constants.FIREBASE_URL_CLIENT_MEAL_LIST).child(mEncodedEmail).child(mListId)
+                .child(Constants.FIREBASE_LOCATION_MEAL_LIST);
         initializeScreen();
         mActiveListItemAdapter = new ActiveMealItemAdapter(this, Meal.class,
                 R.layout.single_client_meal_item, listItemsRef.orderByChild(Constants.FIREBASE_PROPERTY_BOUGHT_BY));

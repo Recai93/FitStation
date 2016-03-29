@@ -8,117 +8,135 @@ import java.util.HashMap;
  */
 public class Measurement implements Serializable{
     private String title ;
-    private double totalweight;
-    private double totalmuscle;
-    private double totalmuscleratio;
-    private double totalfat;
-    private double totalfatratio;
-    private double abdomenfat;
-    private double abdomenmuscle;
-    private double rightarmfat;
-    private double leftarmfat;
-    private double rightlegfat;
-    private double leftlegfat;
-    private double rightarmmuscle;
-    private double leftarmmuscle;
-    private double rightlegmuscle;
-    private double leftlegmuscle;
+    private double totalWeight;
+    private double fatFreeMass;
+    private double totalBodyWater;
+    private double totalFat;
+    private double totalFatRatio;
+    private double age;
+    private double height;
+    private double bodyMassIndex;
+
+    private double abdomenFat;
+    private double abdomenMuscle;
+    private double rightArmFat;
+    private double leftArmFat;
+    private double rightLegFat;
+    private double leftLegFat;
+    private double rightArmMuscle;
+    private double leftArmMuscle;
+    private double rightLegMuscle;
+    private double leftLegMuscle;
     private HashMap<String, Object> timestampCreated;
     private String creator;
 
     public Measurement() {
     }
 
-    public Measurement(String title, double totalweight, double totalmuscle,
-                       double totalfat, double totalmuscleratio, double abdomenfat,
-                       double totalfatratio, double abdomenmuscle, double rightarmfat,
-                       double leftarmfat, double rightlegfat, double leftlegfat,
-                       double rightarmmuscle, double leftarmmuscle, double rightlegmuscle,
-                       double leftlegmuscle, HashMap<String, Object> timestampCreated,
-                       String creator) {
+    public Measurement(String title, double totalWeight, double fatFreeMass,
+                       double totalFat, double totalBodyWater, double abdomenFat,
+                       double totalFatRatio, double abdomenMuscle, double rightArmFat,
+                       double leftArmFat, double rightLegFat, double leftLegFat,
+                       double rightArmMuscle, double leftArmMuscle, double rightLegMuscle,
+                       double leftLegMuscle, double age, double height, double bodyMassIndex,
+                       HashMap<String, Object> timestampCreated, String creator) {
         this.title = title;
-        this.totalweight = totalweight;
-        this.totalmuscle = totalmuscle;
-        this.totalfat = totalfat;
-        this.totalmuscleratio = totalmuscleratio;
-        this.abdomenfat = abdomenfat;
-        this.totalfatratio = totalfatratio;
-        this.abdomenmuscle = abdomenmuscle;
-        this.rightarmfat = rightarmfat;
-        this.leftarmfat = leftarmfat;
-        this.rightlegfat = rightlegfat;
-        this.leftlegfat = leftlegfat;
-        this.rightarmmuscle = rightarmmuscle;
-        this.leftarmmuscle = leftarmmuscle;
-        this.rightlegmuscle = rightlegmuscle;
-        this.leftlegmuscle = leftlegmuscle;
+        this.totalWeight = totalWeight;
+        this.fatFreeMass = fatFreeMass;
+        this.totalFat = totalFat;
+        this.totalBodyWater = totalBodyWater;
+        this.abdomenFat = abdomenFat;
+        this.totalFatRatio = totalFatRatio;
+        this.abdomenMuscle = abdomenMuscle;
+        this.rightArmFat = rightArmFat;
+        this.leftArmFat = leftArmFat;
+        this.rightLegFat = rightLegFat;
+        this.leftLegFat = leftLegFat;
+        this.rightArmMuscle = rightArmMuscle;
+        this.leftArmMuscle = leftArmMuscle;
+        this.rightLegMuscle = rightLegMuscle;
+        this.leftLegMuscle = leftLegMuscle;
+        this.age = age;
+        this.height = height;
+        this.bodyMassIndex = bodyMassIndex;
         this.timestampCreated = timestampCreated;
         this.creator = creator;
-
     }
 
-    public double getAbdomenmuscle() {
-        return abdomenmuscle;
+    public double getAge() {
+        return age;
     }
 
-    public double getLeftlegmuscle() {
-        return leftlegmuscle;
+    public double getHeight() {
+        return height;
     }
 
-    public double getRightlegmuscle() {
-        return rightlegmuscle;
+    public double getBodyMassIndex() {
+        return bodyMassIndex;
     }
 
-    public double getLeftarmmuscle() {
-        return leftarmmuscle;
+    public double getAbdomenMuscle() {
+        return abdomenMuscle;
     }
 
-    public double getRightarmmuscle() {
-        return rightarmmuscle;
+    public double getLeftLegMuscle() {
+        return leftLegMuscle;
     }
 
-    public double getRightlegfat() {
-        return rightlegfat;
+    public double getRightLegMuscle() {
+        return rightLegMuscle;
+    }
+
+    public double getLeftArmMuscle() {
+        return leftArmMuscle;
+    }
+
+    public double getRightArmMuscle() {
+        return rightArmMuscle;
+    }
+
+    public double getRightLegFat() {
+        return rightLegFat;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public double getTotalmuscle() {
-        return totalmuscle;
+    public double getFatFreeMass() {
+        return fatFreeMass;
     }
 
-    public double getTotalmuscleratio() {
-        return totalmuscleratio;
+    public double getTotalBodyWater() {
+        return totalBodyWater;
     }
 
-    public double getTotalfat() {
-        return totalfat;
+    public double getTotalFat() {
+        return totalFat;
     }
 
-    public double getTotalfatratio() {
-        return totalfatratio;
+    public double getTotalFatRatio() {
+        return totalFatRatio;
     }
 
-    public double getRightarmfat() {
-        return rightarmfat;
+    public double getRightArmFat() {
+        return rightArmFat;
     }
 
-    public double getAbdomenfat() {
-        return abdomenfat;
+    public double getAbdomenFat() {
+        return abdomenFat;
     }
 
-    public double getLeftarmfat() {
-        return leftarmfat;
+    public double getLeftArmFat() {
+        return leftArmFat;
     }
 
-    public double getLeftlegfat() {
-        return leftlegfat;
+    public double getLeftLegFat() {
+        return leftLegFat;
     }
 
-    public double getTotalweight() {
-        return totalweight;
+    public double getTotalWeight() {
+        return totalWeight;
     }
 
     public HashMap<String, Object> getTimestampCreated() {

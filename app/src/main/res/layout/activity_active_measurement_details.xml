@@ -11,46 +11,344 @@
         android:layout_height="?attr/actionBarSize"
         android:theme="@style/Toolbar" />
 
-    <TextView
-        android:id="@+id/text_view_measurement_name"
-        style="@style/ListItemText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/created_by"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text_view_measurement_name"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginTop="2dp"
-        android:text="@string/created_by"
-        android:textColor="@color/light_black"
-        android:textSize="@dimen/list_created_by_text_size" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="5">
 
-    <TextView
-        android:id="@+id/text_view_created_by_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text_view_measurement_name"
-        android:layout_marginTop="2dp"
-        android:layout_toEndOf="@+id/created_by"
-        android:layout_toRightOf="@+id/created_by"
-        android:textSize="@dimen/list_created_by_text_size"
-        android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
-    <TextView
-        android:id="@+id/text_view_people_shopping_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/text_view_measurement_name"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/light_black"
-        android:textSize="@dimen/list_created_by_text_size" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:weightSum="3">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.7" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:text="@string/right_hand"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.1"
+                    android:weightSum="1">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:text="@string/fat"
+                        android:textSize="@dimen/list_created_by_text_size"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:text="@string/fat"
+                        android:textSize="@dimen/list_created_by_text_size"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.1"
+                    android:weightSum="1">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:text="@string/muscle"
+                        android:textSize="@dimen/list_created_by_text_size"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:text="@string/muscle"
+                        android:textSize="@dimen/list_created_by_text_size"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="top|right"
+                    android:text="@string/abdomen"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="top|right"
+                    android:text="@string/right_leg"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:src="@drawable/human_body" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:weightSum="3">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom|left"
+                    android:text="@string/left_hand"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="top|left"
+                    android:text="@string/left_leg"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="3">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="right|center"
+                    android:paddingRight="2dp"
+                    android:text="@string/total_weight"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_total_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="left|center"
+                    android:paddingLeft="2dp"
+                    android:text="78"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="right|center"
+                    android:paddingRight="2dp"
+                    android:text="@string/body_mass_index"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_body_mass_index"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="left|center"
+                    android:paddingLeft="2dp"
+                    android:text="78"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="right|center"
+                    android:paddingRight="2dp"
+                    android:text="@string/total_fat_ratio"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_total_fat_ratio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="left|center"
+                    android:paddingLeft="2dp"
+                    android:text="89"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="3">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="right|center"
+                    android:paddingRight="2dp"
+                    android:text="@string/total_fat"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_total_fat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="left|center"
+                    android:paddingLeft="2dp"
+                    android:text="78"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="right|center"
+                    android:paddingRight="2dp"
+                    android:text="@string/fat_free_mass"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_fat_free_mass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="left|center"
+                    android:paddingLeft="2dp"
+                    android:text="78"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="right|center"
+                    android:paddingRight="2dp"
+                    android:text="@string/total_body_water"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_total_body_water"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="left|center"
+                    android:paddingLeft="2dp"
+                    android:text="78"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="right|center"
+                    android:paddingRight="2dp"
+                    android:text="@string/age"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="left|center"
+                    android:paddingLeft="2dp"
+                    android:text="12"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="right|center"
+                    android:paddingRight="2dp"
+                    android:text="@string/height"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="left|center"
+                    android:paddingLeft="2dp"
+                    android:text="145"
+                    android:textSize="@dimen/list_created_by_text_size"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,17 +1,13 @@
 package com.udacity.firebase.shoppinglistplusplus.ui.activeMeasurementDetails;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.udacity.firebase.shoppinglistplusplus.R;
-import com.udacity.firebase.shoppinglistplusplus.model.Measurement;
 import com.udacity.firebase.shoppinglistplusplus.ui.BaseActivity;
-import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
 public class ActiveMeasurementDetailsActivity extends BaseActivity {
     private static final String LOG_TAG = ActiveMeasurementDetailsActivity.class.getSimpleName();
@@ -35,10 +31,10 @@ public class ActiveMeasurementDetailsActivity extends BaseActivity {
     }
 
     private void initializeScreen() {
-        Intent intent = getIntent();
-        Measurement header = (Measurement) intent.getSerializableExtra(Constants.KEY_MEASUREMENT_OBJECT);
-        TextView textView = (TextView) findViewById(R.id.text_view_measurement_name);
-        textView.setText(header.getCreator());
+//        Intent intent = getIntent();
+//        Measurement header = (Measurement) intent.getSerializableExtra(Constants.KEY_MEASUREMENT_OBJECT);
+//        TextView textView = (TextView) findViewById(R.id.text_view_measurement_name);
+//        textView.setText(header.getCreator());
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {

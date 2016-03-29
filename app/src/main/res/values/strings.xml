@@ -253,4 +253,19 @@
     <string name="title_activity_client_measurement">Ölçüm sonuçları</string>
     <string name="title_activity_client_workout">Egzersizler</string>
     <string name="title_activity_client_meal">Yemek listeleri</string>
+    <string name="right_hand">Sağ kol</string>
+    <string name="abdomen">Karın</string>
+    <string name="right_leg">Sağ bacak</string>
+    <string name="left_hand">Sol kol</string>
+    <string name="left_leg">Sol bacak</string>
+    <string name="height">Boy</string>
+    <string name="age">Yaş</string>
+    <string name="total_weight">Toplam kilo</string>
+    <string name="body_mass_index">BMI</string>
+    <string name="total_fat_ratio">Yağ yüzdesi</string>
+    <string name="total_fat">Toplam yağ</string>
+    <string name="fat_free_mass">Toplam kas</string>
+    <string name="total_body_water">Toplam su</string>
+    <string name="fat">Yağ</string>
+    <string name="muscle">Kas</string>
 </resources>

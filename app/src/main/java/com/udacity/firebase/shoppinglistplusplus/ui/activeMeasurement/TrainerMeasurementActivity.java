@@ -83,7 +83,7 @@ public class TrainerMeasurementActivity extends AppCompatActivity {
         String creator = PreferenceManager.getDefaultSharedPreferences(TrainerMeasurementActivity.this).getString(Constants.KEY_ENCODED_EMAIL, null);
         Measurement measurement = new Measurement(title, totalweight, totalmuscle, totalfat, totalmuscleratio, abdomenfat, totalfatratio,
                 abdomenmuscle, rightarmfat, leftarmfat, rightlegfat, leftlegfat, rightarmmuscle, leftarmmuscle, rightlegmuscle, leftlegmuscle,
-                timestampCreated, creator);
+                0, 0, 0, timestampCreated, creator);
 
         Firebase workoutListRef = new Firebase(Constants.FIREBASE_URL_CLIENT_MEASUREMENTS).child(clientEncodedEmail);
 

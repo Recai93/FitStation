@@ -35,6 +35,7 @@ public class ActiveWorkoutItemAdapter extends FirebaseListAdapter<Workout> {
     protected void populateView(View view, final Workout item, int position) {
         TextView textViewItemName = (TextView) view.findViewById(R.id.text_view_active_list_item_name);
         textViewItemName.setText(item.getName());
+//        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=cxLG2wtE7TM")));
     }
 
 }
