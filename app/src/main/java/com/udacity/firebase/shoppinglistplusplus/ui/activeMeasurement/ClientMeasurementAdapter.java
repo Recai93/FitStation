@@ -11,9 +11,6 @@ import com.udacity.firebase.shoppinglistplusplus.model.Measurement;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 import com.udacity.firebase.shoppinglistplusplus.utils.Utils;
 
-/**
- * Created by rajaee on 3/22/16.
- */
 public class ClientMeasurementAdapter extends FirebaseListAdapter<Measurement> {
 
     public ClientMeasurementAdapter(Activity activity, Class<Measurement> modelClass, int modelLayout,
@@ -28,7 +25,7 @@ public class ClientMeasurementAdapter extends FirebaseListAdapter<Measurement> {
         TextView tvCreatedByTrainer = (TextView) view.findViewById(R.id.tv_created_by_trainer);
         TextView tvDate = (TextView) view.findViewById(R.id.tv_date);
 
-        String date = Utils.getDate((Long) measurement.getTimestampCreated().get(Constants.FIREBASE_PROPERTY_TIMESTAMP), "dd-MM-yyyy");
+        String date = Utils.getDate((Long) measurement.getTimestampCreated().get(Constants.FIREBASE_PROPERTY_TIMESTAMP));
         tvTitle.setText(measurement.getTitle());
         tvCreatedByTrainer.setText(measurement.getCreator());
         tvDate.setText(date);

@@ -28,7 +28,7 @@ public class ClientMealAdapter extends FirebaseListAdapter<MealList> {
         TextView tvCreatedByTrainer = (TextView) view.findViewById(R.id.tv_created_by_trainer);
         TextView tvDate = (TextView) view.findViewById(R.id.tv_date);
 
-        String date = Utils.getDate((Long) mealList.getTimestampCreated().get(Constants.FIREBASE_PROPERTY_TIMESTAMP), "dd-MM-yyyy");
+        String date = Utils.getDate((long) mealList.getTimestampCreated().get(Constants.FIREBASE_PROPERTY_TIMESTAMP));
         tvTitle.setText(date + " yemek listesi");
         tvCreatedByTrainer.setText(mealList.getCreator());
         tvDate.setText(date);

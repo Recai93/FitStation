@@ -7,6 +7,7 @@ import java.util.List;
  * Created by rajaee on 3/20/16.
  */
 public class MealList {
+    private String title;
     private String creator;
     private HashMap<String, Object> timestampCreated;
     private List<Meal> mealList;
@@ -14,10 +15,15 @@ public class MealList {
     public MealList() {
     }
 
-    public MealList(String creator, HashMap<String, Object> timestampCreated, List<Meal> mealList) {
+    public MealList(String title, String creator, HashMap<String, Object> timestampCreated, List<Meal> mealList) {
         this.creator = creator;
         this.timestampCreated = timestampCreated;
         this.mealList = mealList;
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public String getCreator() {

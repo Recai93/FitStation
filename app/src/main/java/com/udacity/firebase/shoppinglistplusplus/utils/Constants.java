@@ -121,5 +121,5 @@ public final class Constants {
     public static final String MEAL_TYPE_DETOX = "detox";
 
 
-
+    public static final String DATE_FORMAT = "dd-MM-yyyy";
 }

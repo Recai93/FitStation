@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -15,18 +16,18 @@ import com.firebase.client.ValueEventListener;
 import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.model.Meal;
 import com.udacity.firebase.shoppinglistplusplus.model.MealList;
-import com.udacity.firebase.shoppinglistplusplus.model.User;
 import com.udacity.firebase.shoppinglistplusplus.ui.BaseActivity;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
+import com.udacity.firebase.shoppinglistplusplus.utils.Utils;
 
 public class ActiveMealDetailsActivity extends BaseActivity {
     private static final String LOG_TAG = ActiveMealDetailsActivity.class.getSimpleName();
     private Firebase mCurrentListRef;
     private ActiveMealItemAdapter mActiveListItemAdapter;
     private ListView mListView;
+    private TextView tvMealListTitle;
+    private TextView tvDate;
     private String mListId;
-    private User mCurrentUser;
-    private MealList mMealList;
     private ValueEventListener mCurrentListRefListener;
 
     @Override
@@ -47,18 +48,19 @@ public class ActiveMealDetailsActivity extends BaseActivity {
                 R.layout.single_client_meal_item, listItemsRef.orderByChild(Constants.FIREBASE_PROPERTY_BOUGHT_BY));
         mListView.setAdapter(mActiveListItemAdapter);
         mCurrentListRefListener = mCurrentListRef.addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-
-                MealList shoppingList = snapshot.getValue(MealList.class);
-
-                if (shoppingList == null) {
+                MealList mealList = snapshot.getValue(MealList.class);
+                tvMealListTitle.setText(mealList.getTitle());
+                String date = Utils.getDate((long) mealList.getTimestampCreated().get(Constants.FIREBASE_PROPERTY_TIMESTAMP));
+                tvDate.setText(date);
+                if (mealList == null) {
                     finish();
                     return;
                 }
-                mMealList = shoppingList;
                 invalidateOptionsMenu();
-                setTitle(shoppingList.getCreator());
+                setTitle(mealList.getCreator());
             }
 
             @Override
@@ -87,6 +89,8 @@ public class ActiveMealDetailsActivity extends BaseActivity {
 
     private void initializeScreen() {
         mListView = (ListView) findViewById(R.id.list_view_meals_list_items);
+        tvMealListTitle = (TextView) findViewById(R.id.tv_meal_list_title);
+        tvDate = (TextView) findViewById(R.id.tv_date);
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {

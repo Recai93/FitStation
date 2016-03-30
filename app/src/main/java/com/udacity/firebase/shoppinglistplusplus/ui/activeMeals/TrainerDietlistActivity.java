@@ -86,7 +86,7 @@ public class TrainerDietlistActivity extends AppCompatActivity implements AddCli
         Firebase ref = mealListRef.push();
         String pushId = ref.getKey();
 
-        MealList list = new MealList(creator, timestampCreated, selectedMeals);
+        MealList list = new MealList("title",creator, timestampCreated, selectedMeals);
 
         mealListRef.child(pushId).setValue(list);
         finish();

@@ -28,7 +28,7 @@ public class ClientWorkoutAdapter extends FirebaseListAdapter<WorkoutList> {
         TextView tvCreatedByTrainer = (TextView) view.findViewById(R.id.tv_created_by_trainer);
         TextView tvDate = (TextView) view.findViewById(R.id.tv_date);
 
-        String date = Utils.getDate((Long) workoutList.getTimestampCreated().get(Constants.FIREBASE_PROPERTY_TIMESTAMP), "dd-MM-yyyy");
+        String date = Utils.getDate((Long) workoutList.getTimestampCreated().get(Constants.FIREBASE_PROPERTY_TIMESTAMP));
         tvTitle.setText(date + " egzersiz listesi");
         tvCreatedByTrainer.setText(workoutList.getCreator());
         tvDate.setText(date);
