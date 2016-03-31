@@ -63,7 +63,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_right_hand_fat"
+                        android:id="@+id/tv_right_arm_fat"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.5"
@@ -91,7 +91,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_right_hand_muscle"
+                        android:id="@+id/tv_right_arm_muscle"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.5"
@@ -293,7 +293,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_left_hand_fat"
+                        android:id="@+id/tv_left_arm_fat"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.5"
@@ -321,7 +321,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_left_hand_muscle"
+                        android:id="@+id/tv_left_arm_muscle"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.5"
