@@ -34,14 +34,10 @@ public class ActiveMeasurementDetailsActivity extends BaseActivity {
     private TextView tvTotalBodyWater;
     private TextView tvTotalFat;
 
-
-
-
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_active_measurement_details);
-        overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
         initializeScreen();
     }
 
@@ -62,7 +58,7 @@ public class ActiveMeasurementDetailsActivity extends BaseActivity {
         tvRightArmMuscle=(TextView)findViewById(R.id.tv_right_arm_muscle);
         tvLeftArmMuscle=(TextView)findViewById(R.id.tv_left_arm_muscle);
         tvRightLegFat=(TextView)findViewById(R.id.tv_right_leg_fat);
-        tvLeftLegFat=(TextView)findViewById(R.id.tv_left_leg_muscle);
+        tvLeftLegFat=(TextView)findViewById(R.id.tv_left_leg_fat);
         tvRightLegMuscle=(TextView)findViewById(R.id.tv_right_leg_muscle);
         tvLeftLegMuscle=(TextView)findViewById(R.id.tv_left_leg_muscle);
         tvAbdomenMuscle=(TextView)findViewById(R.id.tv_abdomen_muscle);
@@ -74,7 +70,6 @@ public class ActiveMeasurementDetailsActivity extends BaseActivity {
         tvFatFreeMass=(TextView)findViewById(R.id.tv_fat_free_mass);
         tvTotalBodyWater=(TextView)findViewById(R.id.tv_total_body_water);
         tvTotalFat=(TextView)findViewById(R.id.tv_total_fat);
-
 
         tvAbdomenFat.setText(String.valueOf(measurement.getAbdomenFat()));
         tvRightArmFat.setText(String.valueOf(measurement.getRightArmFat()));
@@ -95,25 +90,11 @@ public class ActiveMeasurementDetailsActivity extends BaseActivity {
         tvTotalBodyWater.setText(String.valueOf(measurement.getTotalBodyWater()));
         tvTotalFat.setText(String.valueOf(measurement.getTotalFat()));
 
-
-
-
-
-
-
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
     }
 
 }

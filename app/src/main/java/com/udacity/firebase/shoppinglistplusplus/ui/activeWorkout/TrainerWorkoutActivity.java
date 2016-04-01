@@ -110,7 +110,7 @@ public class TrainerWorkoutActivity extends AppCompatActivity {
         HashMap<String, Object> timestampJoined = new HashMap<>();
         timestampJoined.put(Constants.FIREBASE_PROPERTY_TIMESTAMP, ServerValue.TIMESTAMP);
         String creator = PreferenceManager.getDefaultSharedPreferences(TrainerWorkoutActivity.this).getString(Constants.KEY_ENCODED_EMAIL, null);
-        WorkoutList list = new WorkoutList(selectedWorkouts, creator, timestampJoined);
+        WorkoutList list = new WorkoutList(selectedWorkouts, creator, "title", timestampJoined);
 
         Firebase ref = workoutListRef.push();
         String pushId = ref.getKey();

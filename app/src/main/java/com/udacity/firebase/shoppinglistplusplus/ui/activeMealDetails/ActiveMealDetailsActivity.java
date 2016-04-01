@@ -24,6 +24,7 @@ public class ActiveMealDetailsActivity extends BaseActivity {
     private static final String LOG_TAG = ActiveMealDetailsActivity.class.getSimpleName();
     private Firebase mCurrentListRef;
     private ActiveMealItemAdapter mActiveListItemAdapter;
+
     private ListView mListView;
     private TextView tvMealListTitle;
     private TextView tvDate;
@@ -34,6 +35,7 @@ public class ActiveMealDetailsActivity extends BaseActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_active_meal_details);
+
         Intent intent = this.getIntent();
         mListId = intent.getStringExtra(Constants.KEY_LIST_ID);
         if (mListId == null) {

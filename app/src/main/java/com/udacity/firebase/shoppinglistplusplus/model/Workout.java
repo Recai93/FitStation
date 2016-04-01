@@ -6,13 +6,15 @@ package com.udacity.firebase.shoppinglistplusplus.model;
 public class Workout {
     private String name;
     private String url;
+    private String type;
 
     public Workout() {
     }
 
-    public Workout( String name, String url) {
+    public Workout( String name, String url, String type) {
         this.name = name;
         this.url = url;
+        this.type = type;
     }
 
 
@@ -24,6 +26,7 @@ public class Workout {
         return url;
     }
 
-
-
+    public String getType() {
+        return type;
+    }
 }
