@@ -33,22 +33,22 @@ public class ImportData {
     };
 
     static String[] ChestUrl = {
-            "Flat Bench Barbell Press",
-            "Incline Bench Barbell Press",
-            "Decline Bench Barbell Press",
-            "Flat Bench Dumbell Press",
-            "Incline Bench Dumbell Press",
-            "Decline Bench Dumbell Press",
-            "Pectoral Fly",
-            "Flat Bench Dumbell Fly",
-            "Incline Bench Dumbell Fly",
-            "Decline Bench Dumbell Fly",
-            "Cable Crossover",
-            "Pullover",
-            "Barbell Pullover",
-            "Dips",
-            "Push Up",
-            "Traviling Push Up"
+            "https://www.youtube.com/watch?v=S6L4uwH0ycY",
+            "https://www.youtube.com/watch?v=yUY1B3I9EJA",
+            "https://www.youtube.com/watch?v=qX2o_FiQeDg",
+            "https://www.youtube.com/watch?v=pqFZKi1o2X8",
+            "https://www.youtube.com/watch?v=WxWlCfZUt6w",
+            "https://www.youtube.com/watch?v=Pf1nDoqx_1A",
+            "https://www.youtube.com/watch?v=wvL4nE6XxfQ",
+            "https://www.youtube.com/watch?v=sAdTZaCW5Vc",
+            "https://www.youtube.com/watch?v=kUIQPABCmz8",
+            "https://www.youtube.com/watch?v=IMALXhhHRKM",
+            "https://www.youtube.com/watch?v=-PThCISYkdM",
+            "https://www.youtube.com/watch?v=tpLnfSQJ0gg",
+            "https://www.youtube.com/watch?v=3f3W-3TMJgA",
+            "https://youtu.be/72gpRKE_CZI",
+            "https://www.youtube.com/watch?v=oKIecYcjWIQ",
+            "https://www.youtube.com/watch?v=V3Wd7bCGPfE"
     };
 
     static String[] BackName = {
@@ -65,16 +65,16 @@ public class ImportData {
     };
 
     static String[] BackUrl = {
-            "Pull Ups",
-            "Chin ups",
-            "Lat Pulldown",
-            "Seated Row",
-            "Bentover Barbell Row",
-            "Bentover Cable Row",
-            "One Arm Dumbell Row",
-            "T-Bar Row",
-            "Inverted Row",
-            "Chest Supported Machine Row"
+            "https://www.youtube.com/watch?v=iUNoLR0pYjY",
+            "https://www.youtube.com/watch?v=b-ztMQpj8yc",
+            "https://www.youtube.com/watch?v=u3gQT2aMVaI",
+            "https://www.youtube.com/watch?v=7qK7x-d8V2A",
+            "https://www.youtube.com/watch?v=B1T6ZYrPAy4",
+            "https://www.youtube.com/watch?v=dES3MxCj-zI",
+            "https://www.youtube.com/watch?v=-koP10y1qZI",
+            "https://www.youtube.com/watch?v=j3Igk5nyZE4",
+            "https://www.youtube.com/watch?v=5LZa9TzkjRg",
+            "https://www.youtube.com/watch?v=uvSLtHpEUws"
     };
 
 
@@ -92,33 +92,36 @@ public class ImportData {
             "Biceps Curl Machine"
     };
     static String[] BicepsUrl = {
-            "Standing Barbell Biceps Curl",
-            " Standing Dumbell Biceps Curl",
-            "Alternate Dumbell Biceps Curl",
-            "Barbell Preacher Curl",
-            "Dumbell Preacher Curl",
-            "Seated Dumbell Biceps Curl",
-            "Incline Dumbell Biceps Curl",
-            "Hammer Curl",
-            "Concentration Curl",
-            "Cable Biceps Curl",
-            "Biceps Curl Machine"
-    };
-    static String[] TricepsName = {
-            "Flat Close Grip Bench Press",
-            "Decline Close Grip Bench Press",
-            "Lying Barbell Triceps Extension",
-            "Lying Dumbell Triceps Extension",
-            "Triceps Extension Machine",
-            "Cable Pushdown",
-            "Cable Reverse Pushdown",
-            "Rope",
-            "Close Grip Push Up",
-            "Dips",
-            "Skull Crusher"
-    };
+            "https://www.youtube.com/watch?v=LY1V6UbRHFM",
+    "https://www.youtube.com/watch?v=av7-8igSXTs",
+    "https://www.youtube.com/watch?v=sAq_ocpRh_I",
+    "https://www.youtube.com/watch?v=DoCWeUBA0Gs",
+    "https://www.youtube.com/watch?v=l9BHpnkLwMA",
+    "https://www.youtube.com/watch?v=soxrZlIl35U",
+    "https://www.youtube.com/watch?v=b4jOP-spQW8",
+    "https://www.youtube.com/watch?v=zC3nLlEvin4",
+    "https://www.youtube.com/watch?v=Jvj2wV0vOYU",
+    "https://www.youtube.com/watch?v=c7wc00q7HMc",
+    "https://www.youtube.com/watch?v=PmPUIqa4vSo"
 
+    };
     static String[] TricepsUrl = {
+            "https://www.youtube.com/watch?v=nEF0bv2FW94",
+    "https://www.youtube.com/watch?v=0XoW1gnDARM",
+    "https://www.youtube.com/watch?v=Eizj7tuWMvw",
+    "https://www.youtube.com/watch?v=MO_03opCc0g",
+    "https://www.youtube.com/watch?v=qCF_hG27jVU",
+    "https://www.youtube.com/watch?v=2-LAMcpzODU",
+    "https://www.youtube.com/watch?v=kuSFFIY4MpU",
+    "https://www.youtube.com/watch?v=vB5OHsJ3EME&feature=youtu.be",
+    "https://www.youtube.com/watch?v=G2mlaEfpEIM",
+    "https://youtu.be/wjUmnZH528Y",
+    "https://www.youtube.com/watch?v=d_KZxkY_0cM"
+
+
+};
+
+    static String[] TricepsName = {
             "Flat Close Grip Bench Press",
             "Decline Close Grip Bench Press",
             "Lying Barbell Triceps Extension",
@@ -195,28 +198,29 @@ public class ImportData {
     };
 
     static String[] LegUrl = {
-            "Barbell Squat",
-            "Dumbell Squat",
-            "Swissball Squat",
-            "Barbell Lunge",
-            "Dumbell Lunge",
-            "Walking Lunge",
-            "Back And Front Lunge",
-            "Brazilian Lunge",
-            "Leg Press Machine",
-            "Leg Extension",
-            "Leg Curl",
-            "Jump Squat",
-            "Jump Lunge",
-            "Barbell Split Squat",
-            "Dumbell Split Squat",
-            "Barbell Romanian Deadlift",
-            "Barbell Straight Leg Deadlift",
-            "Barbell Sumo Squat",
-            "Glute Machine",
-            "Good Morning",
-            "Hyperextension"
-    };
+            "https://www.youtube.com/watch?v=b_uAOqA-pxY",
+    "https://www.youtube.com/watch?v=cAnOVuEBadQ",
+    "https://www.youtube.com/watch?v=rdpFZtaIwKc",
+    "https://www.youtube.com/watch?v=0_9sJd9P8M0",
+    "https://www.youtube.com/watch?v=fRsTLzZy1SM",
+    "https://www.youtube.com/watch?v=7mDWDlzFobQ",
+    "https://www.youtube.com/watch?v=De4fAXtOUkw",
+           "",
+    "https://www.youtube.com/watch?v=IZxyjW7MPJQ",
+    "https://www.youtube.com/watch?v=YyvSfVjQeL0",
+    "https://www.youtube.com/watch?v=ELOCsoDSmrg",
+    "https://www.youtube.com/watch?v=U4s4mEQ5VqU",
+    "https://www.youtube.com/watch?v=y7Iug7eC0dk",
+    "https://www.youtube.com/watch?v=FQi20qWvy1E",
+    "https://www.youtube.com/watch?v=KvloZ_0wi_4",
+    "https://www.youtube.com/watch?v=JCXUYuzwNrM",
+    "https://www.youtube.com/watch?v=5nx1I6nTFM8",
+    "https://www.youtube.com/watch?v=diBqFqCXQIc",
+    "https://www.youtube.com/watch?v=5lOLPHbK_NY",
+    "https://www.youtube.com/watch?v=5Xj6XUa77qc",
+    "https://www.youtube.com/watch?v=O8d8I7-qtGg",
+
+};
 
 
     static String[] FunctionalName = {
@@ -234,18 +238,76 @@ public class ImportData {
     };
 
     static String[] FunctionalUrl = {
-            "Keetbell Swing",
-            "Step Jump Squat",
-            "Box Jump Squat",
-            "Mointain Climber",
-            "Jumping Jack",
-            "Knee Tuck",
-            "Burpess",
-            "Push ups",
-            "Russian Twist",
+           " https://www.youtube.com/watch?v=vdezTMulJ-k",
+    "https://www.youtube.com/watch?v=lNjTf27lb-k&index=1&list=PLetagxtbPjbop9NQppY5AB9OQuJiFRwX2",
+    "https://www.youtube.com/watch?v=uxx6bdjryec",
+    "https://www.youtube.com/watch?v=nmwgirgXLYM",
+    "https://www.youtube.com/watch?v=UpH7rm0cYbM",
+    "https://www.youtube.com/watch?v=BDA3DERQKFk",
+    "https://www.youtube.com/watch?v=Pf7wZvraWV0",
+    "https://www.youtube.com/watch?v=Q7cPaJZoOng",
+    "https://www.youtube.com/watch?v=wkD8rjkodUI",
+    "https://www.youtube.com/watch?v=pSHjTRCQxIw",
+    "https://www.youtube.com/watch?v=NXr4Fw8q60o",
+
+};
+
+    static String[] AbdomenName = {
+            "Crosscrunch",
+            "Leg raises",
+            "Hanging Leg raises",
+            "Flutter kicks",
+            "Side Plank dips",
+            "Windmills",
+            "V-up",
             "Plank",
-            "Side Plank"
+            "Side plank without Leg lift",
+            "Rocking plank",
+            "Barbell roll out",
+            "Alternate heel touchers",
+            "Bent knee hip raise",
+            "Bosu ball crunch",
+            "Cable crunch",
+            "Cross body crunch",
+            "Decline crunch",
+            "Dumbell side bend",
+            "Elbow to knee",
+            "Ball pull in",
+            "Hanging pike raises",
+            "Jackknife sit up",
+            "Russian twist",
+            "Barbell twist",
+            "Spider abs"
     };
+
+    static String[] AbdomenUrl={
+            "https://youtu.be/fd1tgwx65-w",
+    "https://youtu.be/JB2oyawG9KI",
+    "https://youtu.be/wQkDkFQPpbQ",
+    "https://youtu.be/eEG9uXjx4vQ",
+    "https://youtu.be/cIgJkPjnFe4",
+    "https://youtu.be/C4y21LH4m4k",
+    "https://youtu.be/iP2fjvG0g3w",
+    "https://youtu.be/aqzpeq7WxlE",
+    "https://youtu.be/ZZkgopVBPMg",
+    "https://youtu.be/MFIFuJTizmY",
+    "https://youtu.be/8s9rcrCS28k",
+    "https://youtu.be/5K0pqM2Gq2c",
+    "https://youtu.be/VsK9rz0xNI4",
+    "https://youtu.be/ms54teTH74M",
+    "https://youtu.be/NJQROeaBiVE",
+    "https://youtu.be/cDIYH5rH0qU",
+    "https://youtu.be/42_-OvIOZXc",
+    "https://youtu.be/ARAWlmlgPbg",
+    "https://youtu.be/hlcQQdYSJgY",
+    "https://youtu.be/B9GC4LBD9wM",
+    "https://youtu.be/Xy9bW-V36ys",
+    "https://youtu.be/I0EJnQlJqMU",
+    "https://youtu.be/1YeRvNkPVVY",
+    "https://youtu.be/pXmaiD4NIdg",
+    "https://youtu.be/EkutYJA6liQ"
+
+};
 
     public static HashMap<String, List<Workout>> getData() {
         HashMap<String, List<Workout>> expandableListDetail = new HashMap<String, List<Workout>>();
@@ -257,6 +319,7 @@ public class ImportData {
         List<Workout> shoulderList = new ArrayList<>();
         List<Workout> legList = new ArrayList<>();
         List<Workout> functionalList = new ArrayList<>();
+        List<Workout> abdomenList = new ArrayList<>();
 
         Firebase firebaseReff = new Firebase(Constants.FIREBASE_URL + "workout");
 
@@ -266,7 +329,6 @@ public class ImportData {
             Firebase fbRef = firebaseReff.child("chest").push();
             firebaseReff.child("chest").child(fbRef.getKey()).setValue(chestList.get(i));
         }
-//        firebaseReff.child("chest").setValue(chestList);
 
 
         for (int i = 0; i < BackName.length; i++) {
@@ -274,51 +336,42 @@ public class ImportData {
             Firebase fbRef = firebaseReff.child("back").push();
             firebaseReff.child("back").child(fbRef.getKey()).setValue(backList.get(i));
         }
-//        firebaseReff.child("back").setValue(backList);
-//
+
         for (int i = 0; i < BicepsName.length; i++) {
             bicepsList.add(new Workout(BicepsName[i], BicepsUrl[i]));
             Firebase fbRef = firebaseReff.child("biceps").push();
             firebaseReff.child("biceps").child(fbRef.getKey()).setValue(bicepsList.get(i));
         }
-//        firebaseReff.child("biceps").setValue(bicepsList);
-//
+
         for (int i = 0; i < TricepsName.length; i++) {
             tricepsList.add(new Workout(TricepsName[i], TricepsUrl[i]));
             Firebase fbRef = firebaseReff.child("triceps").push();
             firebaseReff.child("triceps").child(fbRef.getKey()).setValue(tricepsList.get(i));
         }
-//        firebaseReff.child("triceps").setValue(tricepsList);
-//
+
         for (int i = 0; i < ShoulderName.length; i++) {
             shoulderList.add(new Workout(ShoulderName[i], ShoulderUrl[i]));
             Firebase fbRef = firebaseReff.child("shoulder").push();
             firebaseReff.child("shoulder").child(fbRef.getKey()).setValue(shoulderList.get(i));
         }
-//        firebaseReff.child("shoulder").setValue(shoulderList);
-//
-        for (int i = 0; i < LegName.length; i++) {
+      for (int i = 0; i < LegName.length; i++) {
             legList.add(new Workout(LegName[i], LegUrl[i]));
             Firebase fbRef = firebaseReff.child("leg").push();
             firebaseReff.child("leg").child(fbRef.getKey()).setValue(legList.get(i));
         }
-//        firebaseReff.child("leg").setValue(legList);
-//
+
         for (int i = 0; i < FunctionalName.length; i++) {
             functionalList.add(new Workout(FunctionalName[i], FunctionalUrl[i]));
             Firebase fbRef = firebaseReff.child("functional").push();
             firebaseReff.child("functional").child(fbRef.getKey()).setValue(functionalList.get(i));
         }
-//        firebaseReff.child("functional").setValue(functionalList);
-//
-//
-//        expandableListDetail.put("CHEST", chestList);
-//        expandableListDetail.put("BACK", backList);
-//        expandableListDetail.put("BICEPS", bicepsList);
-//        expandableListDetail.put("TRICEPS", tricepsList);
-//        expandableListDetail.put("SHOULDER", shoulderList);
-//        expandableListDetail.put("LEG", legList);
-//        expandableListDetail.put("FUNCTIONAL",functionalList);
+
+
+        for (int i = 0; i < AbdomenName.length; i++) {
+            abdomenList.add(new Workout(AbdomenName[i], AbdomenUrl[i]));
+            Firebase fbRef = firebaseReff.child("abdomen").push();
+            firebaseReff.child("abdomen").child(fbRef.getKey()).setValue(abdomenList.get(i));
+        }
 
         return expandableListDetail;
 

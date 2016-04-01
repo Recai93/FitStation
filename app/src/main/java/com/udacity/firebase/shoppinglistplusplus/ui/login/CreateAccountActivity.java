@@ -39,9 +39,11 @@ public class CreateAccountActivity extends BaseActivity {
     private static final String LOG_TAG = CreateAccountActivity.class.getSimpleName();
     private ProgressDialog mAuthProgressDialog;
     private Firebase mFirebaseRef;
-    private EditText mEditTextUsernameCreate, mEditTextEmailCreate, mEditTextNameCreate, mEditTextSurnameCreate, mEditTextPhoneNumberCreate, mEditTextBirthdayCreate;
+    private EditText mEditTextUsernameCreate, mEditTextEmailCreate, mEditTextNameCreate,
+            mEditTextSurnameCreate, mEditTextPhoneNumberCreate, mEditTextBirthdayCreate,
+            mEditTextPasword,mEditTextConfirmPassword;
     private RadioGroup mGenderRadioGroup;
-    private String mUserName, mUserEmail, mPassword, mName, mSurName, mPhoneNumber, mGender, mTrainer;
+    private String mUserName, mUserEmail, mPassword,mConfirmPassword, mName, mSurName, mPhoneNumber, mGender, mTrainer;
     private Date mBirthday;
     private boolean mIsTrainer;
     private SecureRandom mRandom = new SecureRandom();
@@ -84,6 +86,8 @@ public class CreateAccountActivity extends BaseActivity {
         mEditTextSurnameCreate = (EditText) findViewById(R.id.edit_text_surname_create);
         mEditTextPhoneNumberCreate = (EditText) findViewById(R.id.edit_text_phonenumber_create);
         mGenderRadioGroup = (RadioGroup) findViewById(R.id.radio_group_gender);
+        mEditTextPasword = (EditText)findViewById(R.id.edit_text_password);
+        mEditTextConfirmPassword= (EditText)findViewById(R.id.edit_text_confirm_password_create);
 
 
         LinearLayout linearLayoutCreateAccountActivity = (LinearLayout) findViewById(R.id.linear_layout_create_account_activity);
@@ -116,27 +120,57 @@ public class CreateAccountActivity extends BaseActivity {
         mSurName = mEditTextSurnameCreate.getText().toString();
         mPhoneNumber = mEditTextPhoneNumberCreate.getText().toString();
         //mBirthday = mEditTextBirthdayCreate.getText().toString();
-        mPassword = new BigInteger(130, mRandom).toString(32);
+        //mPassword = new BigInteger(130, mRandom).toString(32);
+        mPassword=mEditTextPasword.getText().toString();
+        mConfirmPassword=mEditTextConfirmPassword.getText().toString();
+
+
         mIsTrainer = ((CheckBox) findViewById(R.id.TrainerCheckBox)).isChecked();
         PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("isTrainer", mIsTrainer).apply();
         mGender = ((RadioButton) mGenderRadioGroup
                 .findViewById(mGenderRadioGroup.getCheckedRadioButtonId())).getText().toString();
 
 
-        //ImportData importData = new ImportData();
-       //importData.importData();
 
-        /**
-         * Check that email and user name are okay
-         */
         boolean validEmail = isEmailValid(mUserEmail);
         boolean validUserName = isUserNameValid(mUserName);
         if (!validEmail || !validUserName) return;
 
-        /**
-         * If everything was valid show the progress dialog to indicate that
-         * account creation has started
-         */
+        if (mUserName.equals("")) {
+            mEditTextUsernameCreate.setError(getString(R.string.error_cannot_be_empty));
+            return;
+        }
+
+        if (mName.equals("")) {
+            mEditTextNameCreate.setError(getString(R.string.error_cannot_be_empty));
+            return;
+        }
+
+        if (mSurName.equals("")) {
+            mEditTextSurnameCreate.setError(getString(R.string.error_cannot_be_empty));
+            return;
+        }
+
+        if (mPhoneNumber.equals("")) {
+            mEditTextPhoneNumberCreate.setError(getString(R.string.error_cannot_be_empty));
+            return;
+        }
+        if (mPassword.equals("")) {
+            mEditTextPasword.setError(getString(R.string.error_cannot_be_empty));
+            return;
+        }
+        if (mConfirmPassword.equals("")) {
+            mEditTextConfirmPassword.setError(getString(R.string.error_cannot_be_empty));
+            return;
+        }
+
+        if(mConfirmPassword != mPassword){
+            mEditTextConfirmPassword.setError("Password area should match!");
+            mEditTextPasword.setError("Password area should match!");
+            return;
+        }
+
+
         mAuthProgressDialog.show();
 
         /**

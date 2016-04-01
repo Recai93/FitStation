@@ -104,7 +104,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/til_passwordconfirm_create"
+            android:id="@+id/til_confirm_password_create"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/lists_title_bottom_margin"
@@ -112,7 +112,7 @@
 
 
             <EditText
-                android:id="@+id/edit_text_passwordconfirm_create"
+                android:id="@+id/edit_text_confirm_password_create"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
