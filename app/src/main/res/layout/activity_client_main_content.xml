@@ -124,42 +124,110 @@
 
         </LinearLayout>
 
+        <include layout="@layout/item_divider" />
 
-        <Button
-            android:id="@+id/AddTrainerButton"
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/button1"
-            android:onClick="addTrainerButtonPressed"
-            android:text="Gunluk yemek listesi" />
+            android:layout_weight="0.8"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_meal_list"/>
 
-        <Button
-            android:id="@+id/AddMeasurementButton"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/button2"
-            android:onClick="onShowMeasurementListPressed"
-            android:text="Olcum Sonucu Gorme" />
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="Yemek listesi"/>
 
-        <Button
-            android:id="@+id/AddWorkoutButton"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/button3"
-            android:onClick="onShowWorkoutListPressed"
-            android:text="Egzersiz gorme" />
+            android:layout_weight="0.8"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-        <Button
-            android:id="@+id/AddMealListButton"
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_measurement_list"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_workout_list"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/button4"
-            android:onClick="onShowMealListPressed"
-            android:text="Yemek Listesi Gorme" />
+            android:layout_weight="0.2"
+            android:weightSum="2">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Ölçüm listesi"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Egzersiz listesi"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:src="@drawable/ic_meal_list"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="Yemek listesi"/>
+
+        <!--<Button-->
+            <!--android:id="@+id/AddTrainerButton"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/button1"-->
+            <!--android:onClick="addTrainerButtonPressed"-->
+            <!--android:text="Gunluk yemek listesi" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/AddMeasurementButton"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/button2"-->
+            <!--android:onClick="onShowMeasurementListPressed"-->
+            <!--android:text="Olcum Sonucu Gorme" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/AddWorkoutButton"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/button3"-->
+            <!--android:onClick="onShowWorkoutListPressed"-->
+            <!--android:text="Egzersiz gorme" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/AddMealListButton"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/button4"-->
+            <!--android:onClick="onShowMealListPressed"-->
+            <!--android:text="Yemek Listesi Gorme" />-->
     </LinearLayout>
 
 </LinearLayout>
