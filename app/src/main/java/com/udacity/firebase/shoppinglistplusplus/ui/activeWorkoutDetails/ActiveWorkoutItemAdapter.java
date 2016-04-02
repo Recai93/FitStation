@@ -2,39 +2,55 @@ package com.udacity.firebase.shoppinglistplusplus.ui.activeWorkoutDetails;
 
 import android.app.Activity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.client.Query;
 import com.firebase.ui.FirebaseListAdapter;
 import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.model.Workout;
-import com.udacity.firebase.shoppinglistplusplus.model.WorkoutList;
+import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
-/**
- * Created by rajaee on 3/22/16.
- */
 public class ActiveWorkoutItemAdapter extends FirebaseListAdapter<Workout> {
-    private WorkoutList mWorkoutList;
-    private String mListId;
-    private String mEncodedEmail;
 
     public ActiveWorkoutItemAdapter(Activity activity, Class<Workout> modelClass, int modelLayout,
-                                 Query ref, String listId, String encodedEmail) {
+                                 Query ref) {
         super(activity, modelClass, modelLayout, ref);
         this.mActivity = activity;
-        this.mListId = listId;
-        this.mEncodedEmail = encodedEmail;
-    }
-
-    public void setShoppingList(WorkoutList workoutList) {
-        this.mWorkoutList = workoutList;
-        this.notifyDataSetChanged();
     }
 
     @Override
     protected void populateView(View view, final Workout item, int position) {
-        TextView textViewItemName = (TextView) view.findViewById(R.id.text_view_active_list_item_name);
-        textViewItemName.setText(item.getName());
+        TextView tvWorkoutName = (TextView) view.findViewById(R.id.tv_workout_name);
+        ImageView imageWorkoutIcon = (ImageView) view.findViewById(R.id.image_workout_ic);
+        switch (item.getType()) {
+            case Constants.WORKOUT_TYPE_ABDOMEN:
+                imageWorkoutIcon.setImageResource(R.drawable.ic_abdomen);
+                break;
+            case Constants.WORKOUT_TYPE_BACK:
+                imageWorkoutIcon.setImageResource(R.drawable.ic_back);
+                break;
+            case Constants.WORKOUT_TYPE_BICEPS:
+                imageWorkoutIcon.setImageResource(R.drawable.ic_biceps);
+                break;
+            case Constants.WORKOUT_TYPE_CHEST:
+                imageWorkoutIcon.setImageResource(R.drawable.ic_chest);
+                break;
+            case Constants.WORKOUT_TYPE_FUNCTIONAL:
+                imageWorkoutIcon.setImageResource(R.drawable.ic_functional);
+                break;
+            case Constants.WORKOUT_TYPE_LEGS:
+                imageWorkoutIcon.setImageResource(R.drawable.ic_leg);
+                break;
+            case Constants.WORKOUT_TYPE_SHOULDER:
+                imageWorkoutIcon.setImageResource(R.drawable.ic_back);
+                break;
+            case Constants.WORKOUT_TYPE_TRICEPS:
+                imageWorkoutIcon.setImageResource(R.drawable.ic_triceps);
+                break;
+
+        }
+        tvWorkoutName.setText(item.getName());
 //        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=cxLG2wtE7TM")));
     }
 

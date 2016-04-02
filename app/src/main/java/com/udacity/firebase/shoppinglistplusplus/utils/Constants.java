@@ -120,6 +120,16 @@ public final class Constants {
     public static final String MEAL_TYPE_SNACK = "snack";
     public static final String MEAL_TYPE_DETOX = "detox";
 
+    public static final String WORKOUT_TYPE_CHEST = "chest";
+    public static final String WORKOUT_TYPE_BACK = "back";
+    public static final String WORKOUT_TYPE_BICEPS = "biceps";
+    public static final String WORKOUT_TYPE_TRICEPS = "triceps";
+    public static final String WORKOUT_TYPE_ABDOMEN = "abdomen";
+    public static final String WORKOUT_TYPE_SHOULDER = "shoulder";
+    public static final String WORKOUT_TYPE_LEGS = "legs";
+    public static final String WORKOUT_TYPE_FUNCTIONAL = "functional";
+
+
 
     public static final String DATE_FORMAT = "dd-MM-yyyy";
 }

@@ -26,7 +26,6 @@ import com.udacity.firebase.shoppinglistplusplus.ui.BaseActivity;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 import com.udacity.firebase.shoppinglistplusplus.utils.Utils;
 
-import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Date;
 import java.util.HashMap;
@@ -86,7 +85,8 @@ public class CreateAccountActivity extends BaseActivity {
         mEditTextSurnameCreate = (EditText) findViewById(R.id.edit_text_surname_create);
         mEditTextPhoneNumberCreate = (EditText) findViewById(R.id.edit_text_phonenumber_create);
         mGenderRadioGroup = (RadioGroup) findViewById(R.id.radio_group_gender);
-        mEditTextPasword = (EditText)findViewById(R.id.edit_text_password);
+        mGenderRadioGroup.check(R.id.radio_button_female);
+        mEditTextPasword = (EditText)findViewById(R.id.edit_text_password_create);
         mEditTextConfirmPassword= (EditText)findViewById(R.id.edit_text_confirm_password_create);
 
 
@@ -134,42 +134,42 @@ public class CreateAccountActivity extends BaseActivity {
 
         boolean validEmail = isEmailValid(mUserEmail);
         boolean validUserName = isUserNameValid(mUserName);
-        if (!validEmail || !validUserName) return;
+        boolean validInputs =  validEmail && validUserName;
 
         if (mUserName.equals("")) {
             mEditTextUsernameCreate.setError(getString(R.string.error_cannot_be_empty));
-            return;
+            validInputs = false;
         }
 
         if (mName.equals("")) {
             mEditTextNameCreate.setError(getString(R.string.error_cannot_be_empty));
-            return;
+            validInputs = false;
         }
 
         if (mSurName.equals("")) {
             mEditTextSurnameCreate.setError(getString(R.string.error_cannot_be_empty));
-            return;
+            validInputs = false;
         }
 
         if (mPhoneNumber.equals("")) {
             mEditTextPhoneNumberCreate.setError(getString(R.string.error_cannot_be_empty));
-            return;
+            validInputs = false;
         }
         if (mPassword.equals("")) {
             mEditTextPasword.setError(getString(R.string.error_cannot_be_empty));
-            return;
+            validInputs = false;
         }
         if (mConfirmPassword.equals("")) {
             mEditTextConfirmPassword.setError(getString(R.string.error_cannot_be_empty));
-            return;
+            validInputs = false;
         }
 
         if(mConfirmPassword != mPassword){
             mEditTextConfirmPassword.setError("Password area should match!");
             mEditTextPasword.setError("Password area should match!");
-            return;
+            validInputs = false;
         }
-
+        if(!validEmail)return;
 
         mAuthProgressDialog.show();
 

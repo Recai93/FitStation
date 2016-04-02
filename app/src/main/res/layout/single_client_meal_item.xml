@@ -14,8 +14,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/lists_row_height"
         android:layout_margin="4dp"
-        android:layout_weight="1"
-        android:src="@drawable/ic_lunch" />
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="0dp"
