@@ -15,9 +15,6 @@ import android.widget.TextView;
 
 import com.udacity.firebase.shoppinglistplusplus.R;
 
-/**
- * Created by rajaee on 3/20/16.
- */
 public class AddClientMealDialogFragment extends DialogFragment {
     EditText mEditTextListName;
 

@@ -11,9 +11,6 @@ import com.udacity.firebase.shoppinglistplusplus.model.MealList;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 import com.udacity.firebase.shoppinglistplusplus.utils.Utils;
 
-/**
- * Created by rajaee on 3/22/16.
- */
 public class ClientMealAdapter extends FirebaseListAdapter<MealList> {
 
     public ClientMealAdapter(Activity activity, Class<MealList> modelClass, int modelLayout,

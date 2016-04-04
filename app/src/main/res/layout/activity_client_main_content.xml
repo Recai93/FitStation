@@ -131,6 +131,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.8"
             android:layout_marginTop="16dp"
+            android:onClick="onShowMealListPressed"
             android:src="@drawable/ic_meal_list"/>
 
         <TextView
@@ -151,12 +152,14 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onShowMeasurementListPressed"
                 android:src="@drawable/ic_measurement_list"/>
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onShowWorkoutListPressed"
                 android:src="@drawable/ic_workout_list"/>
 
         </LinearLayout>
@@ -185,6 +188,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.8"
+            android:onClick="onAddDailyWaterPressed"
             android:src="@drawable/ic_meal_list"/>
         <TextView
             android:layout_width="match_parent"

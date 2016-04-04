@@ -14,9 +14,6 @@ import com.udacity.firebase.shoppinglistplusplus.model.Meal;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by elif polat on 17.03.2016.
- */
 public class MealExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Context context;

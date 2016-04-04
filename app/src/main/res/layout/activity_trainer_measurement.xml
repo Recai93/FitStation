@@ -14,298 +14,348 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measurement_title" />
 
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measurement_title" />
+            <EditText
+                android:id="@+id/titleEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/titleEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number"
-            android:textColor="@color/black" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
+            <TextView
+                android:id="@+id/totalweightTextView2"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measurement_totalweight" />
 
-        <TextView
-            android:id="@+id/totalweightTextView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measurement_totalweight" />
+            <EditText
+                android:id="@+id/totalweightEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number"
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
+            <TextView
+                android:id="@+id/totalmuscletextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measuremet_totalmuscle" />
 
-        <EditText
-            android:id="@+id/totalweightEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number"
-            android:textColor="@color/black" />
+            <EditText
+                android:id="@+id/totalmuscleEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number"
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
+            <TextView
+                android:id="@+id/totalmuscleratioTextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measurement_totalmuscleratio" />
 
-        <TextView
-            android:id="@+id/totalmuscletextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measuremet_totalmuscle" />
+            <EditText
+                android:id="@+id/totalmuscleratioEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
 
-        <EditText
-            android:id="@+id/totalmuscleEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number"
-            android:textColor="@color/black" />
+            <TextView
+                android:id="@+id/totalfatTextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measuremet_totalfat" />
 
-        <TextView
-            android:id="@+id/totalmuscleratioTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measurement_totalmuscleratio" />
+            <EditText
+                android:id="@+id/totalfatEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
+            <TextView
+                android:id="@+id/totalfatratioTextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measurement_totalfatratio" />
 
-        <EditText
-            android:id="@+id/totalmuscleratioEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number" />
+            <EditText
+                android:id="@+id/totalfatratioEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
 
+            <TextView
+                android:id="@+id/abdomenfatTextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measurement_adomenfat" />
 
-        <TextView
-            android:id="@+id/totalfatTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measuremet_totalfat" />
+            <EditText
+                android:id="@+id/abdomenfatEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
 
-        <EditText
-            android:id="@+id/totalfatEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number" />
+            <TextView
+                android:id="@+id/abdomenmuscleTextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measurement_adomenmuscle" />
 
-        <TextView
-            android:id="@+id/totalfatratioTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measurement_totalfatratio" />
+            <EditText
+                android:id="@+id/abdomenmuscleEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
+            <TextView
+                android:id="@+id/rightarmfatTextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measurement_rightarmfat" />
 
-        <EditText
-            android:id="@+id/totalfatratioEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number" />
+            <EditText
+                android:id="@+id/rightarmfatEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
+            <TextView
+                android:id="@+id/rightarmmuscleTextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measurement_rightarmmuscle" />
 
-        <TextView
-            android:id="@+id/abdomenfatTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measurement_adomenfat" />
+            <EditText
+                android:id="@+id/rightarmmuscleEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
+            <TextView
+                android:id="@+id/leftarmfatTextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measurement_leftarmfat" />
 
-        <EditText
-            android:id="@+id/abdomenfatEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number" />
+            <EditText
+                android:id="@+id/leftarmfatEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
+            <TextView
+                android:id="@+id/leftarmmuscleTextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measurement_leftarmmuscle" />
 
+            <EditText
+                android:id="@+id/leftarmmuscleEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
 
-        <TextView
-            android:id="@+id/abdomenmuscleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measurement_adomenmuscle" />
+            <TextView
+                android:id="@+id/rightlegfatTextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measurement_rightleftfat" />
 
-        <EditText
-            android:id="@+id/abdomenmuscleEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number" />
+            <EditText
+                android:id="@+id/rightlegfatEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
+            <TextView
+                android:id="@+id/rightlegmuscleTextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measurement_rightlegmescle" />
 
-        <TextView
-            android:id="@+id/rightarmfatTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measurement_rightarmfat" />
+            <EditText
+                android:id="@+id/rightlegmuscleEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
+            <TextView
+                android:id="@+id/leftlegfatTextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measurement_leftlegfat" />
 
-        <EditText
-            android:id="@+id/rightarmfatEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number" />
+            <EditText
+                android:id="@+id/leftlegfatEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="11">
+            <TextView
+                android:id="@+id/leftlegmuscleTextView"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_measurement_leftlegmuscle" />
 
-        <TextView
-            android:id="@+id/rightarmmuscleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measurement_rightarmmuscle" />
-
-        <EditText
-            android:id="@+id/rightarmmuscleEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number" />
-
-        <TextView
-            android:id="@+id/leftarmfatTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measurement_leftarmfat" />
-
-        <EditText
-            android:id="@+id/leftarmfatEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number" />
-
-        <TextView
-            android:id="@+id/leftarmmuscleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measurement_leftarmmuscle" />
-
-        <EditText
-            android:id="@+id/leftarmmuscleEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number" />
-
-
-        <TextView
-            android:id="@+id/rightlegfatTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measurement_rightleftfat" />
-
-        <EditText
-            android:id="@+id/rightlegfatEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number" />
-
-        <TextView
-            android:id="@+id/rightlegmuscleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measurement_rightlegmescle" />
-
-        <EditText
-            android:id="@+id/rightlegmuscleEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number" />
-
-        <TextView
-            android:id="@+id/leftlegfatTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measurement_leftlegfat" />
-
-        <EditText
-            android:id="@+id/leftlegfatEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number" />
-
-
-        <TextView
-            android:id="@+id/leftlegmuscleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/tv_measurement_leftlegmuscle" />
-
-        <EditText
-            android:id="@+id/leftlegmuscleEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="numberDecimal|number" />
-
+            <EditText
+                android:id="@+id/leftlegmuscleEditText"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal|number" />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="11">
 
             <TextView
                 android:id="@+id/tv_add_client"
                 style="@style/HeaderText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/text_add_friend" />
+                android:text="@string/text_add_client" />
 
             <ImageButton
                 android:id="@+id/btn_add_friend"
@@ -327,5 +377,3 @@
 
     </LinearLayout>
 </ScrollView>
-
-

@@ -268,4 +268,5 @@
     <string name="total_body_water">Toplam su</string>
     <string name="fat">Yağ</string>
     <string name="muscle">Kas</string>
+    <string name="text_add_client">Üye ekle</string>
 </resources>

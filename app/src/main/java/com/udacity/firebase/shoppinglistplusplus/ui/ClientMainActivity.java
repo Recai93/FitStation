@@ -70,6 +70,11 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
         startActivity(intent);
     }
 
+    public void onAddDailyWaterPressed(View view) {
+        DialogFragment dialog = ClientWaterDialog.newInstance();
+        dialog.show(ClientMainActivity.this.getFragmentManager(), "AddDailyWaterDialog");
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
