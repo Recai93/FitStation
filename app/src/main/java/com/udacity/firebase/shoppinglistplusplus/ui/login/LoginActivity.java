@@ -28,33 +28,18 @@ import com.udacity.firebase.shoppinglistplusplus.ui.TrainerMainActivity;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 import com.udacity.firebase.shoppinglistplusplus.utils.Utils;
 
-/**
- * Represents Sign in screen and functionality of the app
- */
+
 public class LoginActivity extends BaseActivity {
 
     private static final String LOG_TAG = LoginActivity.class.getSimpleName();
-    /* A dialog that is presented until the Firebase authentication finished. */
     private ProgressDialog mAuthProgressDialog;
-    /* References to the Firebase */
     private Firebase mFirebaseRef;
-    /* Listener for Firebase session changes */
     private Firebase.AuthStateListener mAuthStateListener;
     private EditText mEditTextEmailInput, mEditTextPasswordInput;
     private SharedPreferences mSharedPref;
     private SharedPreferences.Editor mSharedPrefEditor;
 
 
-
-    /**
-     * Variables related to Google Login
-     */
-    /* A flag indicating that a PendingIntent is in progress and prevents us from starting further intents. */
-    //private boolean mGoogleIntentInProgress;
-    /* Request code used to invoke sign in user interactions for Google+ */
-    //public static final int RC_GOOGLE_LOGIN = 1;
-    /* A Google account object that is populated if the user signs in with Google */
-    // GoogleSignInAccount mGoogleAccount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,19 +47,13 @@ public class LoginActivity extends BaseActivity {
         mSharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         mSharedPrefEditor = mSharedPref.edit();
 
-        /**
-         * Create Firebase references
-         */
+
         mFirebaseRef = new Firebase(Constants.FIREBASE_URL);
 
-        /**
-         * Link layout elements from XML and setup progress dialog
-         */
+
         initializeScreen();
 
-        /**
-         * Call signInPassword() when user taps "Done" keyboard action
-         */
+
         mEditTextPasswordInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
@@ -91,20 +70,13 @@ public class LoginActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
 
-        /**
-         * This is the authentication listener that maintains the current user session
-         * and signs in automatically on application launch
-         */
+
         mAuthStateListener = new Firebase.AuthStateListener() {
             @Override
             public void onAuthStateChanged(AuthData authData) {
                 mAuthProgressDialog.dismiss();
 
-                /**
-                 * If there is a valid session to be restored, start TrainerMainActivity.
-                 * No need to pass data via SharedPreferences because app
-                 * already holds userName/provider data from the latest session
-                 */
+
                 if (authData != null) {
                     mEncodedEmail = Utils.encodeEmail(authData.getProviderData().get(Constants.FIREBASE_PROPERTY_EMAIL).toString().toLowerCase());
                     mSharedPrefEditor.putString(Constants.KEY_PROVIDER, authData.getProvider()).apply();
@@ -113,23 +85,17 @@ public class LoginActivity extends BaseActivity {
                 }
             }
         };
-        /* Add auth listener to Firebase ref */
+
         mFirebaseRef.addAuthStateListener(mAuthStateListener);
 
-        /**
-         * Get the newly registered user email if present, use null as default value
-         */
+
         String signupEmail = mSharedPref.getString(Constants.KEY_SIGNUP_EMAIL, null);
 
-        /**
-         * Fill in the email editText and remove value from SharedPreferences if email is present
-         */
+
         if (signupEmail != null) {
             mEditTextEmailInput.setText(signupEmail);
 
-            /**
-             * Clear signupEmail sharedPreferences to make sure that they are used just once
-             */
+
             mSharedPrefEditor.putString(Constants.KEY_SIGNUP_EMAIL, null).apply();
         }
     }
@@ -163,69 +129,46 @@ public class LoginActivity extends BaseActivity {
         });
     }
 
-    /**
-     * Cleans up listeners tied to the user's authentication state
-     */
     @Override
     public void onPause() {
         super.onPause();
         mFirebaseRef.removeAuthStateListener(mAuthStateListener);
     }
 
-    /**
-     * Override onCreateOptionsMenu to inflate nothing
-     *
-     * @param menu The menu with which nothing will happen
-     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
     }
 
-
-    /**
-     * Sign in with Password provider when user clicks sign in button
-     */
     public void onSignInPressed(View view) {
         signInPassword();
     }
 
-    /**
-     * Open CreateAccountActivity when user taps on "Sign up" TextView
-     */
+
     public void onSignUpPressed(View view) {
 
         Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
         startActivity(intent);
     }
 
-    /**
-     * Link layout elements from XML and setup the progress dialog
-     */
+
     public void initializeScreen() {
         mEditTextEmailInput = (EditText) findViewById(R.id.edit_text_email);
         mEditTextPasswordInput = (EditText) findViewById(R.id.edit_text_password);
         LinearLayout linearLayoutLoginActivity = (LinearLayout) findViewById(R.id.linear_layout_login_activity);
         initializeBackground(linearLayoutLoginActivity);
-        /* Setup the progress dialog that is displayed later when authenticating with Firebase */
         mAuthProgressDialog = new ProgressDialog(this);
         mAuthProgressDialog.setTitle(getString(R.string.progress_dialog_loading));
         mAuthProgressDialog.setMessage(getString(R.string.progress_dialog_authenticating_with_firebase));
         mAuthProgressDialog.setCancelable(false);
-        /* Setup Google Sign In */
-        //setupGoogleSignIn();
+
     }
 
-    /**
-     * Sign in with Password provider (used when user taps "Done" action on keyboard)
-     */
+
     public void signInPassword() {
         String email = mEditTextEmailInput.getText().toString();
         String password = mEditTextPasswordInput.getText().toString();
 
-        /**
-         * If email and password are not empty show progress dialog and try to authenticate
-         */
         if (email.equals("")) {
             mEditTextEmailInput.setError(getString(R.string.error_cannot_be_empty));
             return;

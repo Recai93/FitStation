@@ -19,6 +19,7 @@ import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.ui.activeMeals.ClientMealActivity;
 import com.udacity.firebase.shoppinglistplusplus.ui.activeMeasurement.ClientMeasurementActivity;
 import com.udacity.firebase.shoppinglistplusplus.ui.activeWorkout.ClientWorkoutActivity;
+import com.udacity.firebase.shoppinglistplusplus.ui.clientWater.ClientWater;
 import com.udacity.firebase.shoppinglistplusplus.ui.sharing.AddTrainerActivity;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
@@ -66,6 +67,11 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
 
     public void onShowMeasurementListPressed(View view) {
         Intent intent = new Intent(ClientMainActivity.this, ClientMeasurementActivity.class);
+        intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
+        startActivity(intent);
+    }
+    public void onAddDailyWaterPressed(View view) {
+        Intent intent = new Intent(ClientMainActivity.this, ClientWater.class);
         intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
         startActivity(intent);
     }

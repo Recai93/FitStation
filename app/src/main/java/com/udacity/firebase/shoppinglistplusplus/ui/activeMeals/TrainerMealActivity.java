@@ -24,12 +24,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class TrainerDietlistActivity extends AppCompatActivity implements AddClientMealDialogFragment.EditNameDialogListener {
+public class TrainerMealActivity extends AppCompatActivity implements AddClientMealDialogFragment.EditNameDialogListener {
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
     List<String> expandableListTitle;
     HashMap<String, List<Meal>> expandableListDetail;
-    private String TAG = TrainerDietlistActivity.class.getSimpleName();
+    private String TAG = TrainerMealActivity.class.getSimpleName();
     private TextView tvAddClient;
     private String clientEncodedEmail;
 
@@ -40,7 +40,7 @@ public class TrainerDietlistActivity extends AppCompatActivity implements AddCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_trainer_dietlist);
+        setContentView(R.layout.activity_trainer_meallist);
 
         selectedMeals = new ArrayList<>();
 
@@ -58,7 +58,7 @@ public class TrainerDietlistActivity extends AppCompatActivity implements AddCli
             public void onGroupExpand(int groupPosition) {
                 grpPosition = groupPosition;
                 DialogFragment dialog = AddClientMealDialogFragment.newInstance();
-                dialog.show(TrainerDietlistActivity.this.getFragmentManager(), "AddMealDialogFragment");
+                dialog.show(TrainerMealActivity.this.getFragmentManager(), "AddMealDialogFragment");
             }
         });
 
@@ -72,14 +72,14 @@ public class TrainerDietlistActivity extends AppCompatActivity implements AddCli
     }
 
     public void onAddClientPressed(View view) {
-        Intent intent = new Intent(TrainerDietlistActivity.this, ClientList.class);
+        Intent intent = new Intent(TrainerMealActivity.this, ClientList.class);
         startActivityForResult(intent, Constants.FRIEND_LIST_REQUEST_CODE);
     }
 
     public void onSaveMealListPressed(View view) {
         HashMap<String, Object> timestampCreated = new HashMap<>();
         timestampCreated.put(Constants.FIREBASE_PROPERTY_TIMESTAMP, ServerValue.TIMESTAMP);
-        String creator = PreferenceManager.getDefaultSharedPreferences(TrainerDietlistActivity.this).getString(Constants.KEY_ENCODED_EMAIL, null);
+        String creator = PreferenceManager.getDefaultSharedPreferences(TrainerMealActivity.this).getString(Constants.KEY_ENCODED_EMAIL, null);
 
         Firebase mealListRef = new Firebase(Constants.FIREBASE_URL_CLIENT_MEAL_LIST).child(clientEncodedEmail);
 
