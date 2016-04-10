@@ -22,8 +22,8 @@
         </activity>
         <activity
             android:name=".ui.ClientMainActivity"
-            android:theme="@style/NavTheme"
             android:label="@string/app_name"
+            android:theme="@style/NavTheme"
             android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -50,16 +50,41 @@
             android:label="@string/action_settings" />
 
         <activity android:name=".ui.sharing.ClientList" />
+
         <activity android:name=".ui.sharing.AddTrainerActivity" />
-        <activity android:name=".ui.activeWorkout.TrainerWorkoutActivity" />
-        <activity android:name=".ui.activeWorkout.ClientWorkoutActivity" />
-        <activity android:name=".ui.activeMeasurement.TrainerMeasurementActivity" />
-        <activity android:name=".ui.activeMeasurement.ClientMeasurementActivity" />
-        <activity android:name=".ui.activeMeals.TrainerDietlistActivity" />
-        <activity android:name=".ui.activeMeals.ClientMealActivity" />
-        <activity android:name=".ui.activeWorkoutDetails.ActiveWorkoutDetailsActivity" />
-        <activity android:name=".ui.activeMeasurementDetails.ActiveMeasurementDetailsActivity" />
-        <activity android:name=".ui.activeMealDetails.ActiveMealDetailsActivity" />
+
+        <activity android:name=".ui.trainerWorkouts.TrainerWorkoutActivity" />
+
+        <activity android:name=".ui.clientWorkout.ClientWorkoutActivity" />
+
+        <activity android:name=".ui.trainerMeasurements.TrainerMeasurementActivity"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.TrainerMainActivity" />
+        </activity>
+        <activity android:name=".ui.clientMeasurements.ClientMeasurementActivity" />
+
+        <activity android:name=".ui.trainerMeals.TrainerMealActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.TrainerMainActivity" />
+        </activity>
+
+        <activity android:name=".ui.clientMeals.ClientMealActivity" />
+        <activity android:name=".ui.clientWorkoutDetails.ActiveWorkoutDetailsActivity" />
+        <activity android:name=".ui.clientMeasurementDetails.ActiveMeasurementDetailsActivity" />
+        <activity android:name=".ui.clientMealDetails.ActiveMealDetailsActivity" />
+        <activity android:name=".ui.trainerMeals.TrainerAddMealItemActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.trainerMeals.TrainerMealActivity" />
+        </activity>
+        <activity android:name=".ui.ShowClientList" />
+        <activity android:name=".ui.trainerWorkouts.TrainerAddWorkoutItemActivity"/>
+        <activity android:name=".ui.clientAddMeal.AddDailyMealActivity"/>
+        <activity android:name=".ui.clientAddMeal.ClientAddMealActivity"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

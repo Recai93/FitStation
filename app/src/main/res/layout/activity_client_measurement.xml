@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/grey"
-    tools:context=".ui.activeMeasurement.ClientMeasurementActivity">
+    tools:context=".ui.clientMeasurements.ClientMeasurementActivity">
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/app_bar"

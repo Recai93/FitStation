@@ -52,4 +52,5 @@ public class Utils {
         int size = Constants.tips.length;
         return Constants.tips[new Random().nextInt(size)];
     }
+
 }

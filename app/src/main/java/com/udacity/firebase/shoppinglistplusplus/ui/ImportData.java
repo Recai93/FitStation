@@ -1,7 +1,7 @@
 package com.udacity.firebase.shoppinglistplusplus.ui;
 
 import com.firebase.client.Firebase;
-import com.udacity.firebase.shoppinglistplusplus.model.Workout;
+import com.udacity.firebase.shoppinglistplusplus.model.Workout2;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
 import java.util.ArrayList;
@@ -309,66 +309,66 @@ public class ImportData {
 
     };
 
-    public static HashMap<String, List<Workout>> getData() {
-        HashMap<String, List<Workout>> expandableListDetail = new HashMap<String, List<Workout>>();
+    public static HashMap<String, List<Workout2>> getData() {
+        HashMap<String, List<Workout2>> expandableListDetail = new HashMap<>();
 
-        List<Workout> chestList = new ArrayList<>();
-        List<Workout> backList = new ArrayList<>();
-        List<Workout> bicepsList = new ArrayList<>();
-        List<Workout> tricepsList = new ArrayList<>();
-        List<Workout> shoulderList = new ArrayList<>();
-        List<Workout> legList = new ArrayList<>();
-        List<Workout> functionalList = new ArrayList<>();
-        List<Workout> abdomenList = new ArrayList<>();
+        List<Workout2> chestList = new ArrayList<>();
+        List<Workout2> backList = new ArrayList<>();
+        List<Workout2> bicepsList = new ArrayList<>();
+        List<Workout2> tricepsList = new ArrayList<>();
+        List<Workout2> shoulderList = new ArrayList<>();
+        List<Workout2> legList = new ArrayList<>();
+        List<Workout2> functionalList = new ArrayList<>();
+        List<Workout2> abdomenList = new ArrayList<>();
 
         Firebase firebaseReff = new Firebase(Constants.FIREBASE_URL + "workout");
 
         for (int i = 0; i < ChestName.length; i++) {
-            chestList.add(new Workout(ChestName[i], ChestUrl[i], "type"));
+            chestList.add(new Workout2(ChestName[i], ChestUrl[i], "chest"));
             Firebase fbRef = firebaseReff.child("chest").push();
             firebaseReff.child("chest").child(fbRef.getKey()).setValue(chestList.get(i));
         }
 
 
         for (int i = 0; i < BackName.length; i++) {
-            backList.add(new Workout(BackName[i], BackUrl[i], "type"));
+            backList.add(new Workout2(BackName[i], BackUrl[i], "back"));
             Firebase fbRef = firebaseReff.child("back").push();
             firebaseReff.child("back").child(fbRef.getKey()).setValue(backList.get(i));
         }
 
         for (int i = 0; i < BicepsName.length; i++) {
-            bicepsList.add(new Workout(BicepsName[i], BicepsUrl[i], "type"));
+            bicepsList.add(new Workout2(BicepsName[i], BicepsUrl[i], "biceps"));
             Firebase fbRef = firebaseReff.child("biceps").push();
             firebaseReff.child("biceps").child(fbRef.getKey()).setValue(bicepsList.get(i));
         }
 
         for (int i = 0; i < TricepsName.length; i++) {
-            tricepsList.add(new Workout(TricepsName[i], TricepsUrl[i], "type"));
+            tricepsList.add(new Workout2(TricepsName[i], TricepsUrl[i], "triceps"));
             Firebase fbRef = firebaseReff.child("triceps").push();
             firebaseReff.child("triceps").child(fbRef.getKey()).setValue(tricepsList.get(i));
         }
 
         for (int i = 0; i < ShoulderName.length; i++) {
-            shoulderList.add(new Workout(ShoulderName[i], ShoulderUrl[i], "type"));
+            shoulderList.add(new Workout2(ShoulderName[i], ShoulderUrl[i], "shoulder"));
             Firebase fbRef = firebaseReff.child("shoulder").push();
             firebaseReff.child("shoulder").child(fbRef.getKey()).setValue(shoulderList.get(i));
         }
 
         for (int i = 0; i < LegName.length; i++) {
-            legList.add(new Workout(LegName[i], LegUrl[i], "type"));
+            legList.add(new Workout2(LegName[i], LegUrl[i], "leg"));
             Firebase fbRef = firebaseReff.child("leg").push();
             firebaseReff.child("leg").child(fbRef.getKey()).setValue(legList.get(i));
         }
 
         for (int i = 0; i < FunctionalName.length; i++) {
-            functionalList.add(new Workout(FunctionalName[i], FunctionalUrl[i], "type"));
+            functionalList.add(new Workout2(FunctionalName[i], FunctionalUrl[i], "functional"));
             Firebase fbRef = firebaseReff.child("functional").push();
             firebaseReff.child("functional").child(fbRef.getKey()).setValue(functionalList.get(i));
         }
 
 
         for (int i = 0; i < AbdomenName.length; i++) {
-            abdomenList.add(new Workout(AbdomenName[i], AbdomenUrl[i], "type"));
+            abdomenList.add(new Workout2(AbdomenName[i], AbdomenUrl[i], "abdomen"));
             Firebase fbRef = firebaseReff.child("abdomen").push();
             firebaseReff.child("abdomen").child(fbRef.getKey()).setValue(abdomenList.get(i));
         }

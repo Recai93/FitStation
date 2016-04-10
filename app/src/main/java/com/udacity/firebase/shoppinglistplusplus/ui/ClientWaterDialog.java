@@ -13,7 +13,7 @@ import com.udacity.firebase.shoppinglistplusplus.R;
 
 public class ClientWaterDialog extends DialogFragment {
 
-    NumberPicker np;
+    NumberPicker numberPicker;
 
     public static ClientWaterDialog newInstance() {
         ClientWaterDialog addDailyWaterDialogFragment = new ClientWaterDialog();
@@ -22,11 +22,9 @@ public class ClientWaterDialog extends DialogFragment {
         return addDailyWaterDialogFragment;
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -34,21 +32,28 @@ public class ClientWaterDialog extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.CustomTheme_Dialog);
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View rootView = inflater.inflate(R.layout.dialog_add_water, null);
-        np = (NumberPicker) rootView.findViewById(R.id.numberPicker);
-        np.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
 
-        np.setMinValue(0);
-        np.setMaxValue(9);
-        np.setWrapSelectorWheel(false);
+        numberPicker = (NumberPicker) rootView.findViewById(R.id.numberPicker);
+        numberPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        numberPicker.setMinValue(0);
+        numberPicker.setMaxValue(9);
+        numberPicker.setWrapSelectorWheel(false);
 
         builder.setView(rootView)
-                .setPositiveButton(R.string.positive_button_create, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.text_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
+                        ClientWaterDialogListener activity = (ClientWaterDialogListener) getActivity();
+                        activity.onFinish(numberPicker.getValue());
+                        dismiss();
                     }
                 });
 
         return builder.create();
+    }
+
+    public interface ClientWaterDialogListener {
+        void onFinish(long quantity);
     }
 
 }

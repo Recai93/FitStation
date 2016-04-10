@@ -50,6 +50,8 @@ public final class Constants {
     public static final String FIREBASE_LOCATION_CLIENT_MEAL_LIST = "clientMeals";
     public static final String FIREBASE_LOCATION_MEAL_LIST = "mealList";
     public static final String FIREBASE_LOCATION_CLIENT_WORKOUT_LIST = "workoutList";
+    public static final String FIREBASE_LOCATION_CLIENT_INFO = "clientInfo";
+    public static final String FIREBASE_LOCATION_MEALS = "meals";
 
     /**
      * Constants for Firebase object properties
@@ -61,9 +63,13 @@ public final class Constants {
     public static final String FIREBASE_PROPERTY_TIMESTAMP = "timestamp";
     public static final String FIREBASE_PROPERTY_ITEM_NAME = "itemName";
     public static final String FIREBASE_PROPERTY_EMAIL = "email";
+    public static final String FIREBASE_PROPERTY_NAME = "name";
     public static final String FIREBASE_PROPERTY_USERS_SHOPPING = "usersShopping";
     public static final String FIREBASE_PROPERTY_USER_HAS_LOGGED_IN_WITH_PASSWORD = "hasLoggedInWithPassword";
     public static final String FIREBASE_PROPERTY_TIMESTAMP_LAST_CHANGED_REVERSE = "timestampLastChangedReverse";
+    public static final String FIREBASE_PROPERTY_CLIENT_INFO_WATER = "water";
+    public static final String FIREBASE_PROPERTY_CLIENT_INFO_WEIGHT = "weight";
+    public static final String FIREBASE_PROPERTY_CLIENT_INFO_CALORIE = "calorie";
 
     /**
      * Constants for Firebase URL
@@ -76,7 +82,9 @@ public final class Constants {
     public static final String FIREBASE_URL_USER_FRIENDS = FIREBASE_URL + "/" + FIREBASE_LOCATION_USER_FRIENDS;
     public static final String FIREBASE_URL_LISTS_SHARED_WITH = FIREBASE_URL + "/" + FIREBASE_LOCATION_LISTS_SHARED_WITH;
     public static final String FIREBASE_URL_WORKOUT = FIREBASE_URL + "/" + FIREBASE_LOCATION_WORKOUT;
-    public static final String FIREBASE_URL_CLIENT_MEAL_LIST = FIREBASE_URL + "/" + FIREBASE_LOCATION_CLIENT_MEAL_LIST;;
+    public static final String FIREBASE_URL_CLIENT_MEAL_LIST = FIREBASE_URL + "/" + FIREBASE_LOCATION_CLIENT_MEAL_LIST;
+    public static final String FIREBASE_URL_CLIENT_INFO = FIREBASE_URL + "/" + FIREBASE_LOCATION_CLIENT_INFO;
+    public static final String FIREBASE_URL_MEALS = FIREBASE_URL + "/" + FIREBASE_LOCATION_MEALS;
 
     /**
      * Constants for bundles, extras and shared preferences keys
@@ -89,12 +97,17 @@ public final class Constants {
     public static final String KEY_LIST_ITEM_ID = "LIST_ITEM_ID";
     public static final String KEY_PROVIDER = "PROVIDER";
     public static final String KEY_ENCODED_EMAIL = "ENCODED_EMAIL";
+    public static final String KEY_MEAL_ITEMS = "KEY_MEAL_ITEMS";
     public static final String KEY_LIST_OWNER = "LIST_OWNER";
     public static final String KEY_GOOGLE_EMAIL = "GOOGLE_EMAIL";
     public static final String KEY_PREF_SORT_ORDER_LISTS = "PERF_SORT_ORDER_LISTS";
     public static final String KEY_SHARED_WITH_USERS = "SHARED_WITH_USERS";
     public static final String KEY_USER_NAME = "USER_NAME";
     public static final String KEY_MEASUREMENT_OBJECT = "MEASUREMENT_OBJECT";
+    public static final String KEY_MEAL_OBJECT = "MEAL_OBJECT";
+    public static final String KEY_WORKOUT_OBJECT = "WORKOUT_OBJECT";
+    public static final String KEY_DAILY_MEAL_OBJECT = "DAILY_MEAL_OBJECT";
+    public static final String KEY_TRAINER_NAME = "TRAINER_KEY";
 
     /**
      * Constants for Firebase login
@@ -109,16 +122,19 @@ public final class Constants {
     public static final String ORDER_BY_KEY = "orderByPushKey";
     public static final String ORDER_BY_OWNER_EMAIL = "orderByOwnerEmail";
     public static final int FRIEND_LIST_REQUEST_CODE = 50;
+    public static final int TRAINER_ADD_MEAL_ITEM_REQUEST_CODE = 51;
+    public static final int TRAINER_ADD_WORKOUT_ITEM_REQUEST_CODE = 52;
+    public static final int ADD_DAILY_MEAL_REQUEST_CODE = 53;
     private static final String FIREBASE_LOCATION_CLIENT_WORKOUTS = "clientWorkouts";
     public static final String FIREBASE_URL_CLIENT_WORKOUTS = FIREBASE_URL + "/" + FIREBASE_LOCATION_CLIENT_WORKOUTS;
     private static final String FIREBASE_LOCATION_CLIENT_MEASUREMENT = "clientMeasurement";
     public static final String FIREBASE_URL_CLIENT_MEASUREMENTS = FIREBASE_URL + "/" + FIREBASE_LOCATION_CLIENT_MEASUREMENT;
 
-    public static final String MEAL_TYPE_BREAKFAST = "breakfast";
-    public static final String MEAL_TYPE_LUNCH = "lunch";
-    public static final String MEAL_TYPE_DINNER = "dinner";
-    public static final String MEAL_TYPE_SNACK = "snack";
-    public static final String MEAL_TYPE_DETOX = "detox";
+    public static final String MEAL_TYPE_BREAKFAST = "Kahvaltı";
+    public static final String MEAL_TYPE_LUNCH = "Öğle yemeği";
+    public static final String MEAL_TYPE_DINNER = "Akşam yemeği";
+    public static final String MEAL_TYPE_SNACK = "Ara öğün";
+    public static final String MEAL_TYPE_DETOX = "Detox";
 
     public static final String WORKOUT_TYPE_CHEST = "chest";
     public static final String WORKOUT_TYPE_BACK = "back";
@@ -132,4 +148,6 @@ public final class Constants {
 
 
     public static final String DATE_FORMAT = "dd-MM-yyyy";
+    public static final String KEY_WATER_QUANTITY = "WATER_QUANTITY";
+    public static final String KEY_WEIGHT = "WEIGHT";
 }

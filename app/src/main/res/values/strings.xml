@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/tools">
     <!--
 
     == Base Strings For the App ==
@@ -82,12 +82,30 @@
     <string name="title_activity_add_items_from_meal">Add Meal</string>
 
     <!-- Add, Edit and Remove Meal Dialogs -->
-    <string name="hint_add_meal">Create a meal</string>
-    <string name="dialog_title_remove_meal">Remove meal</string>
-    <string name="dialog_message_are_you_sure_remove_meal">Are you sure you want to remove this meal?</string>
-    <string name="hint_enter_meal_name">Enter meal name</string>
+    <!--<string name="hint_add_meal">Create a meal</string>-->
+    <!--<string name="dialog_title_remove_meal">Remove meal</string>-->
+    <!--<string name="dialog_message_are_you_sure_remove_meal">Are you sure you want to remove this meal?</string>-->
+    <!--<string name="hint_enter_meal_name">Enter meal name</string>-->
 
+    <string-array name="meal_array">
+        <item>Yemek tipini seçiniz</item>
+        <item>Kahvaltı</item>
+        <item>Öğle yemeği</item>
+        <item>Akşam yemeği</item>
+        <item>Ara öğün</item>
+        <item>Detox</item>
+    </string-array>
 
+    <string-array name="workout_array">
+        <item>Egzersiz tipini seçiniz</item>
+        <item>Göğüs</item>
+        <item>Sırt</item>
+        <item>Karın</item>
+        <item>Ön kol</item>
+        <item>Arka kol</item>
+        <item>Omuz</item>
+        <item>Fonksiyonel</item>
+    </string-array>
     <!--
 
      == Archived List Strings ==
@@ -268,5 +286,44 @@
     <string name="total_body_water">Toplam su</string>
     <string name="fat">Yağ</string>
     <string name="muscle">Kas</string>
-    <string name="text_add_client">Üye ekle</string>
+    <string name="text_add_client">Üye</string>
+    <string name="text_meal_list_title">Liste adı</string>
+    <string name="text_add_meal_list">Yemek listesi ekle</string>
+    <string name="text_meal_list">Yemek listesi</string>
+    <string name="action_create">Oluştur</string>
+    <string name="hint_enter_meal_name">Yemek adı</string>
+    <string name="hint_enter_meal_description">Açıklama</string>
+    <string name="hint_enter_meal_calorie">Kalori</string>
+    <string name="text_meal_type">Yemek tipi</string>
+    <string name="text_meal_name">Yemek adı</string>
+    <string name="text_meal_description">Açıklama</string>
+    <string name="text_meal_items">İçindekiler</string>
+    <string name="toast_empty_fields">Tüm alanlar doldurulmalı</string>
+    <string name="tv_measurement_age">Yaş</string>
+    <string name="tv_measurement_height">Boy</string>
+    <string name="tv_measurement_bodyMassIndex">Vucüt Kütle Endeksi(BMI)</string>
+    <string name="tv_measurement_totalBodyWater">Su Kütlesi</string>
+    <string name="tv_measurement_fatfreemass">Kas Kütlesi(FFM)</string>
+    <string name="text_add_measurement">Ölçüm sonucu ekle</string>
+    <string name="text_add_workout_list">Egzersiz listesi ekle</string>
+    <string name="text_workout_chest">Göğüs</string>
+    <string name="text_workout_triceps">Arka kol</string>
+    <string name="text_workout_biceps">Ön kol</string>
+    <string name="text_workout_functional">Fonksiyonel</string>
+    <string name="text_workout_legs">Bacak</string>
+    <string name="text_workout_shoulders">Omuz</string>
+    <string name="text_workout_abdomen">Karın</string>
+    <string name="text_workout_back">Sırt</string>
+    <string name="text_workout_list">Egzersiz listesi</string>
+    <string name="text_workout_set_no">Set sayısı</string>
+    <string name="text_workout_rep_no">Tekrar sayısı</string>
+    <string name="text_add_water">Kaç bardak su içtin?</string>
+    <string name="text_ok">Ok</string>
+    <string name="text_glass">bardak</string>
+    <string name="text_weight">kg</string>
+    <string name="text_daily_meal_list">Bugün yediklerim</string>
+    <string name="text_quantity">Miktar</string>
+    <string name="text_calorie">Kalori</string>
+    <string name="text_measurement_list">Ölçüm listesi</string>
+    <string name="text_portion">Porsiyon</string>
 </resources>

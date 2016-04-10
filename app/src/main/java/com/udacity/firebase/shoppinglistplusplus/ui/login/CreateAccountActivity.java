@@ -40,9 +40,9 @@ public class CreateAccountActivity extends BaseActivity {
     private Firebase mFirebaseRef;
     private EditText mEditTextUsernameCreate, mEditTextEmailCreate, mEditTextNameCreate,
             mEditTextSurnameCreate, mEditTextPhoneNumberCreate, mEditTextBirthdayCreate,
-            mEditTextPasword,mEditTextConfirmPassword;
+            mEditTextPasword, mEditTextConfirmPassword;
     private RadioGroup mGenderRadioGroup;
-    private String mUserName, mUserEmail, mPassword,mConfirmPassword, mName, mSurName, mPhoneNumber, mGender, mTrainer;
+    private String mUserName, mUserEmail, mPassword, mConfirmPassword, mName, mSurName, mPhoneNumber, mGender, mTrainer;
     private Date mBirthday;
     private boolean mIsTrainer;
     private SecureRandom mRandom = new SecureRandom();
@@ -86,8 +86,8 @@ public class CreateAccountActivity extends BaseActivity {
         mEditTextPhoneNumberCreate = (EditText) findViewById(R.id.edit_text_phonenumber_create);
         mGenderRadioGroup = (RadioGroup) findViewById(R.id.radio_group_gender);
         mGenderRadioGroup.check(R.id.radio_button_female);
-        mEditTextPasword = (EditText)findViewById(R.id.edit_text_password_create);
-        mEditTextConfirmPassword= (EditText)findViewById(R.id.edit_text_confirm_password_create);
+        mEditTextPasword = (EditText) findViewById(R.id.edit_text_password_create);
+        mEditTextConfirmPassword = (EditText) findViewById(R.id.edit_text_confirm_password_create);
 
 
         LinearLayout linearLayoutCreateAccountActivity = (LinearLayout) findViewById(R.id.linear_layout_create_account_activity);
@@ -121,8 +121,8 @@ public class CreateAccountActivity extends BaseActivity {
         mPhoneNumber = mEditTextPhoneNumberCreate.getText().toString();
         //mBirthday = mEditTextBirthdayCreate.getText().toString();
         //mPassword = new BigInteger(130, mRandom).toString(32);
-        mPassword=mEditTextPasword.getText().toString();
-        mConfirmPassword=mEditTextConfirmPassword.getText().toString();
+        mPassword = mEditTextPasword.getText().toString();
+        mConfirmPassword = mEditTextConfirmPassword.getText().toString();
 
 
         mIsTrainer = ((CheckBox) findViewById(R.id.TrainerCheckBox)).isChecked();
@@ -131,10 +131,9 @@ public class CreateAccountActivity extends BaseActivity {
                 .findViewById(mGenderRadioGroup.getCheckedRadioButtonId())).getText().toString();
 
 
-
         boolean validEmail = isEmailValid(mUserEmail);
         boolean validUserName = isUserNameValid(mUserName);
-        boolean validInputs =  validEmail && validUserName;
+        boolean validInputs = validEmail && validUserName;
 
         if (mUserName.equals("")) {
             mEditTextUsernameCreate.setError(getString(R.string.error_cannot_be_empty));
@@ -164,12 +163,12 @@ public class CreateAccountActivity extends BaseActivity {
             validInputs = false;
         }
 
-        if(mConfirmPassword != mPassword){
+        if (mConfirmPassword != mPassword) {
             mEditTextConfirmPassword.setError("Password area should match!");
             mEditTextPasword.setError("Password area should match!");
             validInputs = false;
         }
-        if(!validEmail)return;
+        if (!validInputs) return;
 
         mAuthProgressDialog.show();
 
@@ -277,7 +276,7 @@ public class CreateAccountActivity extends BaseActivity {
         timestampJoined.put(Constants.FIREBASE_PROPERTY_TIMESTAMP, ServerValue.TIMESTAMP);
 
         /* Create a HashMap version of the user to add */
-        User newUser = new User(mName, mSurName, mUserName, mGender, encodedEmail, mBirthday, mIsTrainer, mPhoneNumber,mTrainer, timestampJoined);
+        User newUser = new User(mName, mSurName, mUserName, mGender, encodedEmail, mBirthday, mIsTrainer, mPhoneNumber, mTrainer, timestampJoined);
         HashMap<String, Object> newUserMap = (HashMap<String, Object>)
                 new ObjectMapper().convertValue(newUser, Map.class);
 

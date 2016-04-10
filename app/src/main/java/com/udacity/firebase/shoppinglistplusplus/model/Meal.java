@@ -1,22 +1,26 @@
 package com.udacity.firebase.shoppinglistplusplus.model;
 
-/**
- * Created by elif polat on 02.03.2016.
- */
-public class Meal {
+import java.io.Serializable;
+import java.util.List;
+
+public class Meal implements Serializable {
+    private List<String> items;
     private String name;
-    private String calorie;
     private String description;
     private String type;
 
     public Meal() {
     }
 
-    public Meal(String name, String calorie, String description, String type) {
+    public Meal(String name, List<String> items, String description, String type) {
         this.name = name;
-        this.calorie = calorie;
+        this.items = items;
         this.description = description;
         this.type = type;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getType() {
@@ -27,11 +31,8 @@ public class Meal {
         return description;
     }
 
-    public String getName() {
-        return name;
+    public List<String> getItems() {
+        return items;
     }
 
-    public String getCalorie() {
-        return calorie;
-    }
 }

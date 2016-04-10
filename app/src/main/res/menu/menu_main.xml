@@ -10,10 +10,17 @@
         android:visible="true"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_logout"
+        android:id="@+id/action_drink_water"
+        android:icon="@drawable/ic_water_glass"
         android:orderInCategory="100"
-        android:title="@string/action_logout"
+        android:title="@string/action_sort"
         android:visible="true"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
+    <!--<item-->
+        <!--android:id="@+id/action_logout"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="@string/action_logout"-->
+        <!--android:visible="true"-->
+        <!--app:showAsAction="never" />-->
 </menu>
 

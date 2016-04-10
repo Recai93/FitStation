@@ -2,6 +2,7 @@ package com.udacity.firebase.shoppinglistplusplus.ui;
 
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
@@ -12,27 +13,35 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.udacity.firebase.shoppinglistplusplus.R;
-import com.udacity.firebase.shoppinglistplusplus.ui.activeMeals.ClientMealActivity;
-import com.udacity.firebase.shoppinglistplusplus.ui.activeMeasurement.ClientMeasurementActivity;
-import com.udacity.firebase.shoppinglistplusplus.ui.activeWorkout.ClientWorkoutActivity;
-import com.udacity.firebase.shoppinglistplusplus.ui.clientWater.ClientWater;
+import com.udacity.firebase.shoppinglistplusplus.ui.clientAddMeal.ClientAddMealActivity;
+import com.udacity.firebase.shoppinglistplusplus.ui.clientMeals.ClientMealActivity;
+import com.udacity.firebase.shoppinglistplusplus.ui.clientMeasurements.ClientMeasurementActivity;
+import com.udacity.firebase.shoppinglistplusplus.ui.clientWorkout.ClientWorkoutActivity;
 import com.udacity.firebase.shoppinglistplusplus.ui.sharing.AddTrainerActivity;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
-public class ClientMainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.HashMap;
+
+public class ClientMainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, ClientWaterDialog.ClientWaterDialogListener {
     private static final String LOG_TAG = ClientMainActivity.class.getSimpleName();
-    private Firebase mUserRef;
-    private ValueEventListener mUserRefListener;
     private String mEncodedEmail;
+    private SharedPreferences sharedPreferences;
 
     private int navigationItemId;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private NavigationView navigationView;
+
+    private TextView tvWater;
+    private TextView tvWeight;
+    private long waterQuantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +49,8 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
         setContentView(R.layout.activity_client_main);
         setTitle("");
 
-        mEncodedEmail = PreferenceManager.getDefaultSharedPreferences(ClientMainActivity.this).getString(Constants.KEY_ENCODED_EMAIL, null);
-
-        mUserRef = new Firebase(Constants.FIREBASE_URL_USERS).child(mEncodedEmail);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ClientMainActivity.this);
+        mEncodedEmail = sharedPreferences.getString(Constants.KEY_ENCODED_EMAIL, null);
 
         initializeScreen();
 
@@ -70,17 +78,12 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
         intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
         startActivity(intent);
     }
+
     public void onAddDailyWaterPressed(View view) {
-        Intent intent = new Intent(ClientMainActivity.this, ClientWater.class);
+        Intent intent = new Intent(ClientMainActivity.this, ClientAddMealActivity.class);
         intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
         startActivity(intent);
     }
-
-    public void onAddDailyWaterPressed(View view) {
-        DialogFragment dialog = ClientWaterDialog.newInstance();
-        dialog.show(ClientMainActivity.this.getFragmentManager(), "AddDailyWaterDialog");
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,8 +98,12 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
             case R.id.action_tip:
-                DialogFragment dialog = TipsDialogFragment.newInstance();
-                dialog.show(ClientMainActivity.this.getFragmentManager(), "Tips");
+                DialogFragment tipsDialog = TipsDialogFragment.newInstance();
+                tipsDialog.show(ClientMainActivity.this.getFragmentManager(), "Tips");
+                return true;
+            case R.id.action_drink_water:
+                DialogFragment waterDialog = ClientWaterDialog.newInstance();
+                waterDialog.show(ClientMainActivity.this.getFragmentManager(), "AddDailyWaterDialog");
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -121,6 +128,34 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        tvWater = (TextView) findViewById(R.id.tv_water);
+        tvWeight = (TextView) findViewById(R.id.tv_weight);
+
+        if (mEncodedEmail != null) {
+            Firebase clientInfoRef = new Firebase(Constants.FIREBASE_URL_CLIENT_INFO).child(mEncodedEmail);
+            clientInfoRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    dataSnapshot.getValue();
+                    HashMap<String, Object> map = (HashMap<String, Object>) dataSnapshot.getValue();
+                    if (map != null) {
+                        if (map.get(Constants.FIREBASE_PROPERTY_CLIENT_INFO_WATER) != null) {
+                            waterQuantity = (Long) map.get(Constants.FIREBASE_PROPERTY_CLIENT_INFO_WATER);
+                            tvWater.setText(String.valueOf(waterQuantity));
+                        }
+                        if (map.get(Constants.FIREBASE_PROPERTY_CLIENT_INFO_WEIGHT) != null) {
+                            tvWeight.setText(map.get(Constants.FIREBASE_PROPERTY_CLIENT_INFO_WEIGHT).toString());
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(FirebaseError firebaseError) {
+
+                }
+            });
+        }
     }
 
     @Override
@@ -138,7 +173,6 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
     public boolean onNavigationItemSelected(MenuItem item) {
 
         navigationItemId = item.getItemId();
-        //Check to see which item was being clicked and perform appropriate action
         switch (navigationItemId) {
             case R.id.navigation_item_1:
                 drawerLayout.closeDrawer(GravityCompat.START);
@@ -155,4 +189,13 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
         return true;
     }
 
+    @Override
+    public void onFinish(long quantity) {
+        if (quantity != 0) {
+            long total = waterQuantity + quantity;
+            tvWater.setText(String.valueOf(total));
+            new Firebase(Constants.FIREBASE_URL_CLIENT_INFO).child(mEncodedEmail)
+                    .child(Constants.FIREBASE_PROPERTY_CLIENT_INFO_WATER).setValue(total);
+        }
+    }
 }

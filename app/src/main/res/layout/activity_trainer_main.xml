@@ -10,39 +10,80 @@
         android:layout_height="?attr/actionBarSize"
         android:theme="@style/Toolbar" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Olcum Sonucu Girme"
-        android:id="@+id/add_measurement_button"
-        android:layout_gravity="center_horizontal"
-        android:layout_above="@+id/add_workout_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="AddMesurementListButtonPressed"/>
 
-    <Button
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Egzersiz ekleme"
-        android:id="@+id/add_workout_button"
-        android:layout_gravity="center_horizontal"
-        android:layout_above="@+id/add_meallist_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="AddWorkoutlistButtonPressed"/>
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_meal_list"
+        android:onClick="onAddMealListButtonPressed"/>
 
-    <Button
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Yemek Listesi Girme"
-        android:id="@+id/add_meallist_button"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="AddMealListButtonPressed"
-       />
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:gravity="center"
+        android:text="Yemek listesi"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_measurement_list"
+            android:onClick="onAddMeasurementListButtonPressed"
+            />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_workout_list"
+            android:onClick="onAddWorkoutListButtonPressed"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:weightSum="2">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Ölçüm listesi"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Egzersiz listesi"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_show_clien_ic"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:src="@drawable/ic_show_client"
+        android:onClick="onShowClientListPressed"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:gravity="center"
+        android:text="Uye listesi"/>
+
 
 
 </LinearLayout>

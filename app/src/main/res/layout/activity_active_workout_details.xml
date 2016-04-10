@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey"
     android:orientation="vertical"
-    tools:context=".ui.activeWorkoutDetails.ActiveWorkoutDetailsActivity">
+    tools:context=".ui.clientWorkoutDetails.ActiveWorkoutDetailsActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/app_bar"

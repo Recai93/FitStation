@@ -20,48 +20,65 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="horizontal"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:padding="4dp"
-                android:orientation="vertical"
                 android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="4dp"
                 android:weightSum="15">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
                     android:gravity="center"
-                    android:text="@string/kilo"/>
+                    android:text="@string/kilo"
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_gravity="center"
                     android:layout_weight="10"
-                    android:src="@drawable/ic_measurement"/>
+                    android:src="@drawable/ic_measurement" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
                     android:layout_weight="4"
-                    android:gravity="center"
-                    android:text="-- kg"/>
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tv_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="--"
+                        android:layout_marginRight="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/text_weight"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:padding="4dp"
-                android:orientation="vertical"
                 android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="4dp"
                 android:weightSum="15">
 
                 <TextView
@@ -69,32 +86,32 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:textColor="@color/green"
-                    android:text="@string/food"/>
+                    android:text="@string/food"
+                    android:textColor="@color/green" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_gravity="center"
                     android:layout_weight="10"
-                    android:src="@drawable/ic_fork_knife"/>
+                    android:src="@drawable/ic_fork_knife" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
                     android:gravity="center"
-                    android:textColor="@color/green"
-                    android:text="-- kcal"/>
+                    android:text="-- kcal"
+                    android:textColor="@color/green" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:padding="4dp"
-                android:orientation="vertical"
                 android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="4dp"
                 android:weightSum="15">
 
                 <TextView
@@ -102,23 +119,40 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:textColor="@color/blue"
-                    android:text="@string/water"/>
+                    android:text="@string/water"
+                    android:textColor="@color/blue" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_gravity="center"
                     android:layout_weight="10"
-                    android:src="@drawable/ic_waterdrop"/>
+                    android:src="@drawable/ic_waterdrop" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
-                    android:gravity="center"
-                    android:textColor="@color/blue"
-                    android:text="-- barduck"/>
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tv_water"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="--"
+                        android:layout_marginRight="4dp"
+                        android:textColor="@color/blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/text_glass"
+                        android:textColor="@color/blue" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -129,17 +163,17 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.8"
             android:layout_marginTop="16dp"
+            android:layout_weight="0.8"
             android:onClick="onShowMealListPressed"
-            android:src="@drawable/ic_meal_list"/>
+            android:src="@drawable/ic_meal_list" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.2"
             android:gravity="center"
-            android:text="Yemek listesi"/>
+            android:text="@string/text_meal_list" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -153,14 +187,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="onShowMeasurementListPressed"
-                android:src="@drawable/ic_measurement_list"/>
+                android:src="@drawable/ic_measurement_list" />
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="onShowWorkoutListPressed"
-                android:src="@drawable/ic_workout_list"/>
+                android:src="@drawable/ic_workout_list" />
 
         </LinearLayout>
 
@@ -169,18 +203,20 @@
             android:layout_height="0dp"
             android:layout_weight="0.2"
             android:weightSum="2">
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Ölçüm listesi"/>
+                android:text="@string/text_measurement_list" />
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Egzersiz listesi"/>
+                android:text="@string/text_workout_list" />
 
         </LinearLayout>
 
@@ -189,49 +225,15 @@
             android:layout_height="0dp"
             android:layout_weight="0.8"
             android:onClick="onAddDailyWaterPressed"
-            android:src="@drawable/ic_meal_list"/>
+            android:src="@drawable/ic_daily_meal_list" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.2"
             android:gravity="center"
-            android:text="Yemek listesi"/>
+            android:text="@string/text_daily_meal_list" />
 
-        <!--<Button-->
-            <!--android:id="@+id/AddTrainerButton"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:background="@color/button1"-->
-            <!--android:onClick="addTrainerButtonPressed"-->
-            <!--android:text="Gunluk yemek listesi" />-->
-
-        <!--<Button-->
-            <!--android:id="@+id/AddMeasurementButton"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:background="@color/button2"-->
-            <!--android:onClick="onShowMeasurementListPressed"-->
-            <!--android:text="Olcum Sonucu Gorme" />-->
-
-        <!--<Button-->
-            <!--android:id="@+id/AddWorkoutButton"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:background="@color/button3"-->
-            <!--android:onClick="onShowWorkoutListPressed"-->
-            <!--android:text="Egzersiz gorme" />-->
-
-        <!--<Button-->
-            <!--android:id="@+id/AddMealListButton"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:background="@color/button4"-->
-            <!--android:onClick="onShowMealListPressed"-->
-            <!--android:text="Yemek Listesi Gorme" />-->
     </LinearLayout>
 
 </LinearLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/lists_row_height"
+    android:background="@android:color/white"
+    android:descendantFocusability="blocksDescendants"
+    android:foreground="?selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center|start"
+        android:paddingLeft="16dp">
+
+        <TextView
+            android:id="@+id/tv_workout_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_workout_set_no_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_workout_name"
+            android:gravity="center_vertical"
+            android:text="@string/text_workout_set_no" />
+
+        <TextView
+            android:id="@+id/tv_workout_set_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_workout_name"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_toRightOf="@+id/tv_workout_set_no_text"
+            android:gravity="center_vertical"
+            android:text="--"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_workout_rep_no_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_workout_name"
+            android:layout_toRightOf="@+id/tv_workout_set_no"
+            android:gravity="center_vertical"
+            android:text="@string/text_workout_rep_no" />
+
+        <TextView
+            android:id="@+id/tv_workout_rep_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_workout_name"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/tv_workout_rep_no_text"
+            android:gravity="center_vertical"
+            android:text="--"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_toggle_selected"
+        android:layout_width="@dimen/margin_normal"
+        android:layout_height="@dimen/margin_normal"
+        android:layout_gravity="center_vertical"
+        android:background="@android:color/transparent"
+        android:padding="6dp"
+        android:src="@drawable/icon_add_friend" />
+
+</LinearLayout>
