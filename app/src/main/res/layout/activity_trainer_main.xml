@@ -1,8 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
-    android:orientation="vertical">
+    android:layout_weight="2"
+    android:orientation="vertical"
+    android:weightSum="10">
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/app_bar"
@@ -10,80 +11,112 @@
         android:layout_height="?attr/actionBarSize"
         android:theme="@style/Toolbar" />
 
-
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.8"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ic_meal_list"
-        android:onClick="onAddMealListButtonPressed"/>
+        android:layout_marginTop="8dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="4dp"
+            android:weightSum="15">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="11"
+                android:onClick="onAddMeasurementListButtonPressed"
+                android:src="@drawable/ic_measurement_list" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:text="@string/text_add_measurement"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="@dimen/list_created_by_text_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="4dp"
+            android:weightSum="15">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="11"
+                android:onClick="onAddMealListButtonPressed"
+                android:src="@drawable/ic_meal_list" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:text="@string/text_add_meal_list"
+                android:textColor="@color/teal"
+                android:textSize="@dimen/list_created_by_text_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="4dp"
+            android:weightSum="15">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="11"
+                android:onClick="onAddWorkoutListButtonPressed"
+                android:src="@drawable/ic_workout_list" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:text="@string/text_add_workout_list"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/list_created_by_text_size" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/item_divider" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.2"
-        android:gravity="center"
-        android:text="Yemek listesi"/>
+        android:layout_weight="0.5"
+        android:gravity="start|center"
+        android:paddingLeft="16dp"
+        android:text="@string/text_client_list" />
 
-    <LinearLayout
+    <ListView
+        android:id="@+id/list_view_clients"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.8"
-        android:orientation="horizontal"
-        android:weightSum="2">
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_measurement_list"
-            android:onClick="onAddMeasurementListButtonPressed"
-            />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_workout_list"
-            android:onClick="onAddWorkoutListButtonPressed"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.2"
-        android:weightSum="2">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Ölçüm listesi"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Egzersiz listesi"/>
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/image_show_clien_ic"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.8"
-        android:src="@drawable/ic_show_client"
-        android:onClick="onShowClientListPressed"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.2"
-        android:gravity="center"
-        android:text="Uye listesi"/>
-
+        android:layout_weight="7.5"
+        android:scrollbars="none" />
 
 
 </LinearLayout>

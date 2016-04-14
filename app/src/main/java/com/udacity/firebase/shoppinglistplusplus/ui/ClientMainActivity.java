@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.firebase.client.ServerValue;
 import com.firebase.client.ValueEventListener;
 import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.ui.clientAddMeal.ClientAddMealActivity;
@@ -27,6 +28,8 @@ import com.udacity.firebase.shoppinglistplusplus.ui.clientWorkout.ClientWorkoutA
 import com.udacity.firebase.shoppinglistplusplus.ui.sharing.AddTrainerActivity;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class ClientMainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, ClientWaterDialog.ClientWaterDialogListener {
@@ -42,6 +45,7 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
     private TextView tvWater;
     private TextView tvWeight;
     private long waterQuantity;
+    private TextView tvCalorie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,35 +58,6 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
 
         initializeScreen();
 
-    }
-
-    public void addTrainerButtonPressed(View view) {
-        Intent intent = new Intent(ClientMainActivity.this, AddTrainerActivity.class);
-        startActivity(intent);
-    }
-
-    public void onShowWorkoutListPressed(View view) {
-        Intent intent = new Intent(ClientMainActivity.this, ClientWorkoutActivity.class);
-        intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
-        startActivity(intent);
-    }
-
-    public void onShowMealListPressed(View view) {
-        Intent intent = new Intent(ClientMainActivity.this, ClientMealActivity.class);
-        intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
-        startActivity(intent);
-    }
-
-    public void onShowMeasurementListPressed(View view) {
-        Intent intent = new Intent(ClientMainActivity.this, ClientMeasurementActivity.class);
-        intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
-        startActivity(intent);
-    }
-
-    public void onAddDailyWaterPressed(View view) {
-        Intent intent = new Intent(ClientMainActivity.this, ClientAddMealActivity.class);
-        intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
-        startActivity(intent);
     }
 
     @Override
@@ -131,9 +106,10 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
 
         tvWater = (TextView) findViewById(R.id.tv_water);
         tvWeight = (TextView) findViewById(R.id.tv_weight);
+        tvCalorie = (TextView) findViewById(R.id.tv_calorie);
 
         if (mEncodedEmail != null) {
-            Firebase clientInfoRef = new Firebase(Constants.FIREBASE_URL_CLIENT_INFO).child(mEncodedEmail);
+            final Firebase clientInfoRef = new Firebase(Constants.FIREBASE_URL_CLIENT_INFO).child(mEncodedEmail);
             clientInfoRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -146,6 +122,24 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
                         }
                         if (map.get(Constants.FIREBASE_PROPERTY_CLIENT_INFO_WEIGHT) != null) {
                             tvWeight.setText(map.get(Constants.FIREBASE_PROPERTY_CLIENT_INFO_WEIGHT).toString());
+                        }
+                        if (map.get(Constants.FIREBASE_PROPERTY_CLIENT_INFO_CALORIE) != null) {
+                            tvCalorie.setText(map.get(Constants.FIREBASE_PROPERTY_CLIENT_INFO_CALORIE).toString());
+                        }
+                        if (map.get(Constants.FIREBASE_PROPERTY_TIMESTAMP) != null) {
+                            Calendar calendar = Calendar.getInstance();
+                            calendar.setTime(new Date(Long.parseLong(map.get(Constants.FIREBASE_PROPERTY_TIMESTAMP).toString())));
+                            int day = calendar.get(Calendar.DAY_OF_YEAR);
+                            Calendar currentDateCalendar = Calendar.getInstance();
+                            int today = currentDateCalendar.get(Calendar.DAY_OF_YEAR);
+                            if (day != today) {
+                                clientInfoRef.child(Constants.FIREBASE_PROPERTY_CLIENT_INFO_WATER).removeValue();
+                                clientInfoRef.child(Constants.FIREBASE_PROPERTY_CLIENT_INFO_CALORIE).removeValue();
+                                clientInfoRef.child(Constants.FIREBASE_PROPERTY_CLIENT_INFO_WEIGHT).removeValue();
+                                new Firebase(Constants.FIREBASE_URL_CLIENT_INFO).child(mEncodedEmail).removeValue();
+                                clientInfoRef.child(Constants.FIREBASE_PROPERTY_TIMESTAMP).setValue(ServerValue.TIMESTAMP);
+                            }
+
                         }
                     }
                 }
@@ -172,21 +166,74 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
+        Intent intent;
         navigationItemId = item.getItemId();
         switch (navigationItemId) {
-            case R.id.navigation_item_1:
+            case R.id.navigation_item_add_trainer:
+                drawerLayout.closeDrawer(GravityCompat.START);
+                intent = new Intent(ClientMainActivity.this, AddTrainerActivity.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.navigation_item_meal_list:
+                drawerLayout.closeDrawer(GravityCompat.START);
+                intent = new Intent(ClientMainActivity.this, ClientMealActivity.class);
+                intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
+                startActivity(intent);
+                return true;
+
+            case R.id.navigation_item_measurements:
+                drawerLayout.closeDrawer(GravityCompat.START);
+                intent = new Intent(ClientMainActivity.this, ClientMeasurementActivity.class);
+                intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
+                startActivity(intent);
+                return true;
+
+            case R.id.navigation_item_daily_meals:
+                drawerLayout.closeDrawer(GravityCompat.START);
+                intent = new Intent(ClientMainActivity.this, ClientAddMealActivity.class);
+                intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
+                startActivity(intent);
+                return true;
+
+            case R.id.navigation_item_exercises:
+                drawerLayout.closeDrawer(GravityCompat.START);
+                intent = new Intent(ClientMainActivity.this, ClientWorkoutActivity.class);
+                intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
+                startActivity(intent);
+                return true;
+
+            case R.id.navigation_sub_item_logout:
                 drawerLayout.closeDrawer(GravityCompat.START);
                 logout();
-                return true;
-            case R.id.navigation_item_2:
-                drawerLayout.closeDrawer(GravityCompat.START);
-                return true;
-            case R.id.navigation_item_3:
-                drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void onShowWorkoutListPressed(View view) {
+        Intent intent = new Intent(ClientMainActivity.this, ClientWorkoutActivity.class);
+        intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
+        startActivity(intent);
+    }
+
+    public void onShowMealListPressed(View view) {
+        Intent intent = new Intent(ClientMainActivity.this, ClientMealActivity.class);
+        intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
+        startActivity(intent);
+    }
+
+    public void onShowMeasurementListPressed(View view) {
+        Intent intent = new Intent(ClientMainActivity.this, ClientMeasurementActivity.class);
+        intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
+        startActivity(intent);
+    }
+
+    public void onAddDailyMealPressed(View view) {
+        Intent intent = new Intent(ClientMainActivity.this, ClientAddMealActivity.class);
+        intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
+        startActivity(intent);
     }
 
     @Override
@@ -194,8 +241,10 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
         if (quantity != 0) {
             long total = waterQuantity + quantity;
             tvWater.setText(String.valueOf(total));
-            new Firebase(Constants.FIREBASE_URL_CLIENT_INFO).child(mEncodedEmail)
-                    .child(Constants.FIREBASE_PROPERTY_CLIENT_INFO_WATER).setValue(total);
+
+            Firebase clientInfoRef = new Firebase(Constants.FIREBASE_URL_CLIENT_INFO).child(mEncodedEmail);
+            clientInfoRef.child(Constants.FIREBASE_PROPERTY_CLIENT_INFO_WATER).setValue(total);
+            clientInfoRef.child(Constants.FIREBASE_PROPERTY_TIMESTAMP).setValue(ServerValue.TIMESTAMP);
         }
     }
 }

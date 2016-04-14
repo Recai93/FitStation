@@ -2,6 +2,7 @@ package com.udacity.firebase.shoppinglistplusplus.ui.sharing;
 
 import android.app.Activity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.client.Query;
@@ -33,6 +34,14 @@ public class ClientAdapter extends FirebaseListAdapter<User> {
     @Override
     protected void populateView(View view, final User friend) {
         view.setTag(friend.getEmail());
-        ((TextView) view.findViewById(R.id.user_name)).setText(friend.getUsername());
+        TextView tvUserName = (TextView) view.findViewById(R.id.user_name);
+        ImageView ivUserImage = (ImageView) view.findViewById(R.id.iv_user_image);
+
+        tvUserName.setText(friend.getUsername());
+        if (friend.getGender().equals("male")) {
+            ivUserImage.setImageResource(R.drawable.avatar_male);
+        } else {
+            ivUserImage.setImageResource(R.drawable.avatar_male);
+        }
     }
 }

@@ -16,7 +16,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ServerValue;
@@ -163,7 +162,7 @@ public class CreateAccountActivity extends BaseActivity {
             validInputs = false;
         }
 
-        if (mConfirmPassword != mPassword) {
+        if (!mConfirmPassword.equals(mPassword)) {
             mEditTextConfirmPassword.setError("Password area should match!");
             mEditTextPasword.setError("Password area should match!");
             validInputs = false;
@@ -182,62 +181,22 @@ public class CreateAccountActivity extends BaseActivity {
                  * If user was successfully created, run resetPassword() to send temporary 24h
                  * password to the user's email and make sure that user owns specified email
                  */
-                mFirebaseRef.resetPassword(mUserEmail, new Firebase.ResultHandler() {
-                    @Override
-                    public void onSuccess() {
+                mAuthProgressDialog.dismiss();
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(CreateAccountActivity.this);
+                SharedPreferences.Editor spe = sp.edit();
 
-                        mFirebaseRef.authWithPassword(mUserEmail, mPassword, new Firebase.AuthResultHandler() {
-                            @Override
-                            public void onAuthenticated(AuthData authData) {
-                                mAuthProgressDialog.dismiss();
-                                Log.i(LOG_TAG, getString(R.string.log_message_auth_successful));
+                /**
+                 * Save name and email to sharedPreferences to create User database record
+                 * when the registered user will sign in for the first time
+                 */
+                spe.putString(Constants.KEY_SIGNUP_EMAIL, mUserEmail).apply();
 
-                                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(CreateAccountActivity.this);
-                                SharedPreferences.Editor spe = sp.edit();
-
-                                /**
-                                 * Save name and email to sharedPreferences to create User database record
-                                 * when the registered user will sign in for the first time
-                                 */
-                                spe.putString(Constants.KEY_SIGNUP_EMAIL, mUserEmail).apply();
-
-                                /**
-                                 * Encode user email replacing "." with ","
-                                 * to be able to use it as a Firebase db key
-                                 */
-                                createUserInFirebaseHelper((String) result.get("uid"));
-
-                                /**
-                                 *  Password reset email sent, open app chooser to pick app
-                                 *  for handling inbox email intent
-                                 */
-                                Intent intent = new Intent(Intent.ACTION_MAIN);
-                                intent.addCategory(Intent.CATEGORY_APP_EMAIL);
-                                try {
-                                    startActivity(intent);
-                                    finish();
-                                } catch (android.content.ActivityNotFoundException ex) {
-                                    /* User does not have any app to handle email */
-                                }
-                            }
-
-                            @Override
-                            public void onAuthenticationError(FirebaseError firebaseError) {
-                                Log.e(LOG_TAG, firebaseError.getMessage());
-                            }
-                        });
-
-                    }
-
-                    @Override
-                    public void onError(FirebaseError firebaseError) {
-                        /* Error occurred, log the error and dismiss the progress dialog */
-                        Log.d(LOG_TAG, getString(R.string.log_error_occurred) +
-                                firebaseError);
-                        mAuthProgressDialog.dismiss();
-                    }
-                });
-
+                /**
+                 * Encode user email replacing "." with ","
+                 * to be able to use it as a Firebase db key
+                 */
+                createUserInFirebaseHelper((String) result.get("uid"));
+                finish();
 
             }
 

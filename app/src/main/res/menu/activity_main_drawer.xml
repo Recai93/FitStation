@@ -4,44 +4,34 @@
     tools:context=".map.MapMainActivity">
     <group
         android:id="@+id/menu_top"
-        android:checkableBehavior="single">
+        android:checkableBehavior="none">
         <item
-            android:id="@+id/navigation_item_1"
+            android:id="@+id/navigation_item_add_trainer"
             android:icon="@android:drawable/ic_menu_manage"
             android:title="@string/nav_item_add_trainer" />
         <item
-            android:id="@+id/navigation_item_2"
+            android:id="@+id/navigation_item_measurements"
             android:icon="@android:drawable/ic_menu_manage"
-            android:title="@string/nav_item_manage_profile" />
+            android:title="@string/nav_item_measurements" />
         <item
-            android:id="@+id/navigation_item_3"
+            android:id="@+id/navigation_item_meal_list"
             android:icon="@android:drawable/ic_menu_manage"
-            android:title="@string/nav_item_show_measurements" />
+            android:title="@string/nav_item_meal_list" />
         <item
-            android:id="@+id/navigation_item_4"
+            android:id="@+id/navigation_item_exercises"
             android:icon="@android:drawable/ic_menu_manage"
-            android:title="@string/nav_item_show_meals" />
+            android:title="@string/nav_item_exercises" />
         <item
-            android:id="@+id/navigation_item_5"
+            android:id="@+id/navigation_item_daily_meals"
             android:icon="@android:drawable/ic_menu_manage"
-            android:title="@string/nav_item_show_exercises" />
+            android:title="@string/nav_item_daily_meals" />
     </group>
     <group
         android:id="@+id/menu_bottom"
         android:checkableBehavior="none">
-        <!--<item-->
-        <!--android:id="@+id/navigation_subheader"-->
-        <!--android:title="@string/nav_sub_header">-->
-        <!--<menu>-->
         <item
-            android:id="@+id/navigation_sub_item_1"
-            android:icon="@android:drawable/ic_menu_manage"
-            android:title="@string/nav_sub_item_settings" />
-        <item
-            android:id="@+id/navigation_sub_item_2"
+            android:id="@+id/navigation_sub_item_logout"
             android:icon="@android:drawable/ic_menu_manage"
             android:title="@string/nav_sub_item_logout" />
-        <!--</menu>-->
-        <!--</item>-->
     </group>
 </menu>

@@ -12,7 +12,6 @@ public final class Constants {
             "Kilonuza dikkat edin. Her fazla kilo, eklemleriniz üzerinde gereksiz bir yüktür",
             "Kahvaltıyı asla ihmal etmeyin. Kahvaltıda lifli gıdalar almaya dikkat edin",
             "Kaslarınızı çalıştırın. Düzenli çalışmayla 12 hafta içinde orta yaşlarda bile kas gücünüzü geliştirmeniz mümkündür",
-            "Seks hayatınızı ihmal etmeyin. Seks yapmak, yalnızca egzersiz olarak değil, vücuttaki hormon salgılarının düzenli şekilde devam etmesi için de gerekli bir aktivitedir",
             "Formunuzu koruyun. Yoga ve pilates yararlı ama yüzmek ve yürümek de asla ihmal edilmemesi gereken egzersizler",
             "Yağ dengenize dikkat. Vücut için en iyi yağ balıkta ve cevizde bulunur",
             "Vücuttaki pas ve tortuyu atın. Miktarda aşırıya kaçmamak şartıyla yeşil çay, siyah çikolata tüketin",
@@ -31,7 +30,7 @@ public final class Constants {
             "Gününüzü planlayın. Planlı yaşamak, vaktinizi daha verimli ve yararlı geçirmenizi ve stresten kaçınmanızı sağlar",
             "Dişlerinize iyi bakın. Günde en az iki kere dişlerinizi fırçalayın, kahveyi fazla içmekten kaçının",
             "Şeklinizi koruyun. Vücudunuz bütün gün televizyon veya bilgisayar başında oturmak için dizayn edilmedi. Kalkın, hareket edin",
-            "Olumlu düşünün. Uzmanlar varlığıyla mutlu olduğunuz şeyleri düşünmenizi tavsiye ediyorlar. Pozitif düşünce hem sizi genç tutar, hem stresi azaltır",
+            "Olumlu düşünün. Uzmanlar varlığıyla mutlu olduğunuz şeyleri düşünmenizi tavsiye ediyorlar. Pozitif düşünce hem sizi genç tutar, hem stresi azaltır",
             "Zihinsel bakımınızı ihmal etmeyin. Televizyon karşısında çok fazla vakit geçirmek bunama riskini artırıyor. Yeni bir şeyler öğrenip yeni alışkanlıklar geliştirerek zihinsel faaliyetlerinizi aralıksız sürdürün"};
 
     /**
@@ -52,6 +51,7 @@ public final class Constants {
     public static final String FIREBASE_LOCATION_CLIENT_WORKOUT_LIST = "workoutList";
     public static final String FIREBASE_LOCATION_CLIENT_INFO = "clientInfo";
     public static final String FIREBASE_LOCATION_MEALS = "meals";
+    public static final String FIREBASE_LOCATION_CLIENT_DAILY_MEALS = "clientDailyMeals";
 
     /**
      * Constants for Firebase object properties
@@ -85,6 +85,7 @@ public final class Constants {
     public static final String FIREBASE_URL_CLIENT_MEAL_LIST = FIREBASE_URL + "/" + FIREBASE_LOCATION_CLIENT_MEAL_LIST;
     public static final String FIREBASE_URL_CLIENT_INFO = FIREBASE_URL + "/" + FIREBASE_LOCATION_CLIENT_INFO;
     public static final String FIREBASE_URL_MEALS = FIREBASE_URL + "/" + FIREBASE_LOCATION_MEALS;
+    public static final String FIREBASE_URL_CLIENT_DAILY_MEALS = FIREBASE_URL + "/" + FIREBASE_LOCATION_CLIENT_DAILY_MEALS;
 
     /**
      * Constants for bundles, extras and shared preferences keys

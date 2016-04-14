@@ -9,13 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.NumberPicker;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.udacity.firebase.shoppinglistplusplus.R;
 
 public class ClientAddDailyMealDialogFragment extends DialogFragment {
-    private NumberPicker numberPickerSetNo;
-    private NumberPicker numberPickerRepNo;
     private static int position;
+    private NumberPicker numberPickerPortion;
+    private NumberPicker numberPickerPortion1;
+    private Spinner spinnerMealType;
 
     public static ClientAddDailyMealDialogFragment newInstance(int position) {
         ClientAddDailyMealDialogFragment.position = position;
@@ -40,32 +43,48 @@ public class ClientAddDailyMealDialogFragment extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View rootView = inflater.inflate(R.layout.dialog_client_add_daily_meal_item, null);
 
-        numberPickerSetNo = (NumberPicker) rootView.findViewById(R.id.number_picker_set_no);
-        numberPickerRepNo = (NumberPicker) rootView.findViewById(R.id.number_picker_rep_no);
+        numberPickerPortion = (NumberPicker) rootView.findViewById(R.id.number_picker_portion);
+        numberPickerPortion1 = (NumberPicker) rootView.findViewById(R.id.number_picker_portion1);
+        spinnerMealType = (Spinner) rootView.findViewById(R.id.spinner_meal_type);
 
-        numberPickerSetNo.setMinValue(1);
-        numberPickerSetNo.setMaxValue(10);
-        numberPickerSetNo.setValue(3);
+        numberPickerPortion.setMinValue(1);
+        numberPickerPortion.setMaxValue(20);
+        numberPickerPortion.setValue(1);
 
-        numberPickerRepNo.setMinValue(1);
-        numberPickerRepNo.setMaxValue(50);
-        numberPickerRepNo.setValue(25);
+        numberPickerPortion.setWrapSelectorWheel(false);
+
+        numberPickerPortion1.setMinValue(0);
+        numberPickerPortion1.setMaxValue(50);
+        numberPickerPortion1.setValue(0);
+
+        String nums[] = {"1/8", "1/4", "1/3", "1/2", "2/3"};
+
+        numberPickerPortion1.setMaxValue(nums.length - 1);
+        numberPickerPortion1.setMinValue(0);
+        numberPickerPortion1.setWrapSelectorWheel(false);
+        numberPickerPortion1.setDisplayedValues(nums);
 
         builder.setView(rootView)
                 .setPositiveButton(R.string.action_create, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        CreateDailyMealDialogListener activity = (CreateDailyMealDialogListener) getActivity();
-                        activity.onFinishCreateDialog(numberPickerSetNo.getValue(), numberPickerRepNo.getValue(), position);
-                        dismiss();
+                        if (spinnerMealType.getSelectedItemPosition() != 0) {
+                            CreateDailyMealDialogListener activity = (CreateDailyMealDialogListener) getActivity();
+                            activity.onFinishCreateDialog(position, numberPickerPortion.getValue(),
+                                    numberPickerPortion1.getValue(), spinnerMealType.getSelectedItem().toString());
+                            dismiss();
+                        } else {
+                            Toast.makeText(getActivity(), getString(R.string.toast_empty_fields), Toast.LENGTH_LONG).show();
+                        }
                     }
                 });
+
 
         return builder.create();
     }
 
     public interface CreateDailyMealDialogListener {
-        void onFinishCreateDialog(int setNo, int repNo, int position);
+        void onFinishCreateDialog(int position, int portion, int portion1, String mealType);
     }
 
 }
