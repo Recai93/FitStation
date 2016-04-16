@@ -10,6 +10,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,12 +22,14 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.ServerValue;
 import com.firebase.client.ValueEventListener;
 import com.udacity.firebase.shoppinglistplusplus.R;
-import com.udacity.firebase.shoppinglistplusplus.ui.clientAddMeal.ClientAddMealActivity;
-import com.udacity.firebase.shoppinglistplusplus.ui.clientMeals.ClientMealActivity;
+import com.udacity.firebase.shoppinglistplusplus.model.User;
+import com.udacity.firebase.shoppinglistplusplus.ui.clientAddMeal.ClientAddDailyMealActivity;
+import com.udacity.firebase.shoppinglistplusplus.ui.clientMealLists.ClientMealListsActivity;
 import com.udacity.firebase.shoppinglistplusplus.ui.clientMeasurements.ClientMeasurementActivity;
 import com.udacity.firebase.shoppinglistplusplus.ui.clientWorkout.ClientWorkoutActivity;
 import com.udacity.firebase.shoppinglistplusplus.ui.sharing.AddTrainerActivity;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
+import com.udacity.firebase.shoppinglistplusplus.utils.Utils;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -46,6 +49,9 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
     private TextView tvWeight;
     private long waterQuantity;
     private TextView tvCalorie;
+
+    private TextView tvUsername;
+    private TextView tvEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,12 +114,34 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
         tvWeight = (TextView) findViewById(R.id.tv_weight);
         tvCalorie = (TextView) findViewById(R.id.tv_calorie);
 
+
+        View headerLayout = navigationView.getHeaderView(0);
+        tvUsername = (TextView) headerLayout.findViewById(R.id.username);
+        tvEmail = (TextView) headerLayout.findViewById(R.id.email);
+
         if (mEncodedEmail != null) {
+            final Firebase userRef = new Firebase(Constants.FIREBASE_URL_USERS).child(mEncodedEmail);
+            userRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    User user = dataSnapshot.getValue(User.class);
+                    if (user != null) {
+                        tvUsername.setText(user.getName());
+                        tvEmail.setText(Utils.decodeEmail(user.getEmail()));
+                    }
+                }
+
+                @Override
+                public void onCancelled(FirebaseError firebaseError) {
+                    Log.e(LOG_TAG, getString(R.string.log_error_the_read_failed) +
+                            firebaseError.getMessage());
+                }
+            });
+
             final Firebase clientInfoRef = new Firebase(Constants.FIREBASE_URL_CLIENT_INFO).child(mEncodedEmail);
             clientInfoRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    dataSnapshot.getValue();
                     HashMap<String, Object> map = (HashMap<String, Object>) dataSnapshot.getValue();
                     if (map != null) {
                         if (map.get(Constants.FIREBASE_PROPERTY_CLIENT_INFO_WATER) != null) {
@@ -177,7 +205,7 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
 
             case R.id.navigation_item_meal_list:
                 drawerLayout.closeDrawer(GravityCompat.START);
-                intent = new Intent(ClientMainActivity.this, ClientMealActivity.class);
+                intent = new Intent(ClientMainActivity.this, ClientMealListsActivity.class);
                 intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
                 startActivity(intent);
                 return true;
@@ -191,7 +219,7 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
 
             case R.id.navigation_item_daily_meals:
                 drawerLayout.closeDrawer(GravityCompat.START);
-                intent = new Intent(ClientMainActivity.this, ClientAddMealActivity.class);
+                intent = new Intent(ClientMainActivity.this, ClientAddDailyMealActivity.class);
                 intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
                 startActivity(intent);
                 return true;
@@ -219,7 +247,7 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
     }
 
     public void onShowMealListPressed(View view) {
-        Intent intent = new Intent(ClientMainActivity.this, ClientMealActivity.class);
+        Intent intent = new Intent(ClientMainActivity.this, ClientMealListsActivity.class);
         intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
         startActivity(intent);
     }
@@ -231,7 +259,7 @@ public class ClientMainActivity extends BaseActivity implements NavigationView.O
     }
 
     public void onAddDailyMealPressed(View view) {
-        Intent intent = new Intent(ClientMainActivity.this, ClientAddMealActivity.class);
+        Intent intent = new Intent(ClientMainActivity.this, ClientAddDailyMealActivity.class);
         intent.putExtra(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
         startActivity(intent);
     }

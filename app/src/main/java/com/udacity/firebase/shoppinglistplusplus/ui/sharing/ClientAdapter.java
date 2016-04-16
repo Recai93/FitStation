@@ -10,27 +10,16 @@ import com.firebase.ui.FirebaseListAdapter;
 import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.model.User;
 
-/**
- * Created by rajaee on 3/10/16.
- */
 public class ClientAdapter extends FirebaseListAdapter<User> {
     private static final String LOG_TAG = ClientAdapter.class.getSimpleName();
 
 
-    /**
-     * Public constructor that initializes private instance variables when adapter is created
-     */
     public ClientAdapter(Activity activity, Class<User> modelClass, int modelLayout,
                          Query ref) {
         super(activity, modelClass, modelLayout, ref);
         this.mActivity = activity;
     }
 
-    /**
-     * Protected method that populates the view attached to the adapter (list_view_friends_autocomplete)
-     * with items inflated from single_user_item.xml
-     * populateView also handles data changes and updates the listView accordingly
-     */
     @Override
     protected void populateView(View view, final User friend) {
         view.setTag(friend.getEmail());

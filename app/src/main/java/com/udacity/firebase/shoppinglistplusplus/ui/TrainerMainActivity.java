@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
@@ -55,7 +58,8 @@ public class TrainerMainActivity extends BaseActivity {
 
                 @Override
                 public void onCancelled(FirebaseError firebaseError) {
-
+                    Log.e(LOG_TAG, getString(R.string.log_error_the_read_failed) +
+                            firebaseError.getMessage());
                 }
             });
         }
@@ -85,26 +89,21 @@ public class TrainerMainActivity extends BaseActivity {
         }
     }
 
-//    public void onShowClientListPressed(View view) {
-//        Intent intent = new Intent(TrainerMainActivity.this, ShowClientList.class);
-//        startActivity(intent);
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_base, menu);
+        return true;
+    }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//        if (id == R.id.action_tip) {
-//            startActivity(new Intent(TrainerMainActivity.this, SettingsActivity.class));
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            logout();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
 }

@@ -11,7 +11,9 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_fitstation"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".ui.TrainerMainActivity"
             android:label="@string/app_name"
@@ -20,8 +22,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.TrainerMainActivity" />
         </activity>
+
         <activity
             android:name=".ui.ClientMainActivity"
+            android:launchMode="singleTop"
             android:label="@string/app_name"
             android:theme="@style/NavTheme"
             android:windowSoftInputMode="adjustPan">
@@ -29,6 +33,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.udacity.firebase.shoppinglistplusplus.ui.ClientMainActivity" />
         </activity>
+
         <activity android:name=".ui.login.LoginActivity">
             <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.MAIN" />
@@ -36,10 +41,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.login.CreateAccountActivity"
-            android:label="@string/title_activity_create_account"
-            android:parentActivityName=".ui.login.LoginActivity">
+            android:label="@string/title_activity_create_account">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.login.LoginActivity" />
@@ -57,12 +62,14 @@
 
         <activity android:name=".ui.clientWorkout.ClientWorkoutActivity" />
 
-        <activity android:name=".ui.trainerMeasurements.TrainerMeasurementActivity"
+        <activity
+            android:name=".ui.trainerMeasurements.TrainerMeasurementActivity"
             android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.TrainerMainActivity" />
         </activity>
+
         <activity android:name=".ui.clientMeasurements.ClientMeasurementActivity" />
 
         <activity android:name=".ui.trainerMeals.TrainerMealActivity">
@@ -71,20 +78,38 @@
                 android:value=".ui.TrainerMainActivity" />
         </activity>
 
-        <activity android:name=".ui.clientMeals.ClientMealActivity" />
         <activity android:name=".ui.clientWorkoutDetails.ActiveWorkoutDetailsActivity" />
+
         <activity android:name=".ui.clientMeasurementDetails.ActiveMeasurementDetailsActivity" />
-        <activity android:name=".ui.clientMealDetails.ActiveMealDetailsActivity" />
+
         <activity android:name=".ui.trainerMeals.TrainerAddMealItemActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.trainerMeals.TrainerMealActivity" />
         </activity>
+
         <activity android:name=".ui.ShowClientList" />
-        <activity android:name=".ui.trainerWorkouts.TrainerAddWorkoutItemActivity"/>
-        <activity android:name=".ui.clientAddMeal.AddDailyMealActivity"/>
-        <activity android:name=".ui.clientAddMeal.ClientAddMealActivity"
-            android:windowSoftInputMode="adjustPan"/>
+
+        <activity android:name=".ui.trainerWorkouts.TrainerAddWorkoutItemActivity" />
+
+        <activity
+            android:name=".ui.clientAddMeal.ClientAddDailyMealActivity"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity android:name=".ui.clientMealLists.ClientMealListsActivity"
+            android:parentActivityName=".ui.ClientMainActivity"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.ClientMainActivity" />
+        </activity>
+
+        <activity android:name=".ui.clientMealListDetails.ClientActiveMealListActivity"
+            android:parentActivityName=".ui.clientMealLists.ClientMealListsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.clientMealLists.ClientMealListsActivity" />
+        </activity>
     </application>
 
 </manifest>

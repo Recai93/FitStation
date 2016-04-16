@@ -1,4 +1,4 @@
-package com.udacity.firebase.shoppinglistplusplus.ui.clientMeals;
+package com.udacity.firebase.shoppinglistplusplus.ui.clientMealLists;
 
 import android.app.Activity;
 import android.view.View;
@@ -11,10 +11,10 @@ import com.udacity.firebase.shoppinglistplusplus.model.MealList;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 import com.udacity.firebase.shoppinglistplusplus.utils.Utils;
 
-public class ClientMealAdapter extends FirebaseListAdapter<MealList> {
+public class ClientMealListsAdapter extends FirebaseListAdapter<MealList> {
 
-    public ClientMealAdapter(Activity activity, Class<MealList> modelClass, int modelLayout,
-                             Query ref) {
+    public ClientMealListsAdapter(Activity activity, Class<MealList> modelClass, int modelLayout,
+                                  Query ref) {
         super(activity, modelClass, modelLayout, ref);
         this.mActivity = activity;
     }

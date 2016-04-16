@@ -328,4 +328,5 @@
     <string name="text_portion">Porsiyon</string>
     <string name="nav_item_daily_meals">Bugün yediklerim</string>
     <string name="text_client_list">Üye listesi</string>
+    <string name="title_activity_client_meal_list">Yemek listesi</string>
 </resources>

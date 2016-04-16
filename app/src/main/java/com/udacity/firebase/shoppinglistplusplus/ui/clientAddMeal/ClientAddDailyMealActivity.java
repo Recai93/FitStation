@@ -25,12 +25,12 @@ import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ClientAddMealActivity extends AppCompatActivity
+public class ClientAddDailyMealActivity extends AppCompatActivity
         implements ClientAddDailyMealDialogFragment.CreateDailyMealDialogListener {
     Firebase mealListRef;
     private String TAG = TrainerMealActivity.class.getSimpleName();
     private ListView mListView;
-    private ClientAddMealAdapter addMealAdapter;
+    private ClientAddDailyMealAdapter addMealAdapter;
     private ArrayList<DailyMeal> mealsList;
     private EditText mEditTextAddFriendEmail;
     private AutocompleteDailyMealAdapter mFriendsAutocompleteAdapter;
@@ -52,10 +52,10 @@ public class ClientAddMealActivity extends AppCompatActivity
             getSupportActionBar().setTitle(getString(R.string.text_daily_meal_list));
         }
 
-        mail = PreferenceManager.getDefaultSharedPreferences(ClientAddMealActivity.this).getString(Constants.KEY_ENCODED_EMAIL, null);
+        mail = PreferenceManager.getDefaultSharedPreferences(ClientAddDailyMealActivity.this).getString(Constants.KEY_ENCODED_EMAIL, null);
         mealListRef = new Firebase(Constants.FIREBASE_URL_CLIENT_DAILY_MEALS).child(mail);
 
-        addMealAdapter = new ClientAddMealAdapter(this, DailyMeal.class, R.layout.single_client_daily_meal, mealListRef);
+        addMealAdapter = new ClientAddDailyMealAdapter(this, DailyMeal.class, R.layout.single_client_daily_meal, mealListRef);
         mListView = (ListView) findViewById(R.id.list_view_meals_list);
         mListView.setAdapter(addMealAdapter);
         mealsList = new ArrayList<>();
@@ -88,7 +88,7 @@ public class ClientAddMealActivity extends AppCompatActivity
 
             /* Define and set the adapter otherwise. */
                 } else {
-                    mFriendsAutocompleteAdapter = new AutocompleteDailyMealAdapter(ClientAddMealActivity.this, DailyMeal.class,
+                    mFriendsAutocompleteAdapter = new AutocompleteDailyMealAdapter(ClientAddDailyMealActivity.this, DailyMeal.class,
                             R.layout.single_autocomplete_daily_meal, mealsRef.orderByChild(Constants.FIREBASE_PROPERTY_NAME)
                             .startAt(mInput).endAt(mInput + "~").limitToFirst(5));
 
@@ -102,7 +102,7 @@ public class ClientAddMealActivity extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DialogFragment dialog = ClientAddDailyMealDialogFragment.newInstance(position);
-                dialog.show(ClientAddMealActivity.this.getFragmentManager(), "AddMealItemDialogFragment");
+                dialog.show(ClientAddDailyMealActivity.this.getFragmentManager(), "AddMealItemDialogFragment");
             }
         });
 
